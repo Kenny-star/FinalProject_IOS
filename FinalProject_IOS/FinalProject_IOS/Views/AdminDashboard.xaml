@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.AdminDashboard">
+    
+    
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Image Source="Tutoring_Logo.gif" Grid.Row="0" Grid.ColumnSpan="3"/>
+
+        <Label Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+
+        <Button x:Name="manageCourses" Text="Manage Courses" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="3" 
+                Margin="15, 0, 15, 0" Clicked="manageCourses_Clicked"/>
+
+        <Label Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+
+        <Button x:Name="mangageRegistrations" Text="Manage Registrations" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="6"
+                Margin="15, 0, 15, 0" Clicked="mangageRegistrations_Clicked"/>
+
+        <Label Grid.Row="7" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+
+        <Button x:Name="assignTutors" Text="Assign Tutors" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="9"
+                Margin="15, 0, 15, 0" Clicked="assignTutors_Clicked"/>
+
+
+    </StackLayout>
+</ContentPage>
