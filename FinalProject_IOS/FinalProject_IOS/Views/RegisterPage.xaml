@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.RegisterPage">
+    <ScrollView>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Image Source="Tutoring_Logo.gif" Grid.Row="1" Grid.ColumnSpan="3"/>
+            <Label Text="Register" TextColor="Black" Grid.Row="2" Grid.Column="0" FontSize="32" Margin="10"/>
+
+
+            <Entry x:Name="username" Placeholder="Enter username" Grid.Column="2" Grid.Row="3" Margin="10"/>
+
+
+            <Entry x:Name="password" Placeholder="Enter password" Grid.Column="2" Grid.Row="4" IsPassword="True" Margin="10"/>
+
+            <Entry x:Name="firstname" Placeholder="Enter First Name" Grid.Column="2" Grid.Row="5" Margin="10"/>
+
+            <Entry x:Name="lastname" Placeholder="Enter Last Name" Grid.Column="2" Grid.Row="6" Margin="10"/>
+
+            <Entry x:Name="email" Placeholder="Enter Email" Grid.Column="2" Grid.Row="7" Margin="10"/>
+
+            <Entry x:Name="course" Placeholder="Enter Course Name" Grid.Column="2" Grid.Row="8" Margin="10"/>
+
+            <RadioButton x:Name="Tutor" Grid.Column="2" Grid.Row="9" Content="Tutor"></RadioButton>
+
+            <RadioButton x:Name="Teacher" Grid.Column="2" Grid.Row="10" Content="Teacher"></RadioButton>
+
+            <RadioButton x:Name="Tutee" Grid.Column="2" Grid.Row="11" Content="Tutee"></RadioButton>
+
+
+            <Button x:Name="Register" Text="Register" BackgroundColor="#848BDD" TextColor="White" Grid.Column="1" Grid.Row="10" Margin="30, 0, 15, 0" Clicked ="Register_Clicked"/>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

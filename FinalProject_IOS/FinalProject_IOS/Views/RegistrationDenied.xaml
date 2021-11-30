@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.RegistrationDenied">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Image Source="Tutoring_Logo.gif" Grid.Row="1" Grid.ColumnSpan="3"/>
+        <Label Text="Your registration was denied. &#x0a; &#x0a; We are sorry for the inconvenience." TextColor="#ff0800" HorizontalTextAlignment="Center" BackgroundColor="#ff726f" Grid.Row="2" Grid.ColumnSpan="3" FontSize="32" Margin="10"/>
+        </StackLayout>
+</ContentPage>

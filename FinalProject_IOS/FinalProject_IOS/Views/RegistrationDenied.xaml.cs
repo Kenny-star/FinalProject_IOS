@@ -10,21 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace FinalProject_IOS.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class RegistrationDenied : ContentPage
     {
-        public LoginPage()
+        public RegistrationDenied()
         {
             InitializeComponent();
-        }
-
-        private void Login_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Register_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new RegisterPage());
         }
     }
 }
