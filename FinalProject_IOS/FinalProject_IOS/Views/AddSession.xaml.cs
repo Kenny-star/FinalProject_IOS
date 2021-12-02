@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace FinalProject_IOS.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SessionAssignment : ContentPage
+    public partial class AddSession : ContentPage
     {
-        public SessionAssignment()
+        public AddSession()
         {
             InitializeComponent();
         }
@@ -22,7 +22,7 @@ namespace FinalProject_IOS.Views
 
         }
 
-        private void ImageButton_Clicked_1(object sender, EventArgs e)
+        private void AddTutoringSessionClicked_Clicked(object sender, EventArgs e)
         {
 
         }

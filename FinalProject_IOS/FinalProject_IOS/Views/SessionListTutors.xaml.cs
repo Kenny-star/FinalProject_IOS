@@ -16,5 +16,10 @@ namespace FinalProject_IOS.Views
         {
             InitializeComponent();
         }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

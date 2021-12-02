@@ -22,7 +22,7 @@
                 </Grid.ColumnDefinitions>
 
                 <ImageButton Source="back.png" Grid.Row="0" Grid.Column="0" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
-                             Clicked="backImageButton_Clicked"/>
+                             Clicked="ImageButton_Clicked"/>
                 <Label Text="Past Tutoring Sessions" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1" FontSize="28" 
                          VerticalTextAlignment="Center" TextColor="Black" Margin="20,0,0,0"/>
             </Grid>
