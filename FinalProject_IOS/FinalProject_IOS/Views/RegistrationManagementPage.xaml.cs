@@ -10,11 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace FinalProject_IOS.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegistrationDenied : ContentPage
+    public partial class RegistrationManagementPage : ContentPage
     {
-        public RegistrationDenied()
+        public RegistrationManagementPage()
         {
             InitializeComponent();
+        }
+
+        private void GoBack_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AdminDashboardPage());
         }
     }
 }

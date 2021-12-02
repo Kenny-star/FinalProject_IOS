@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.StudentsListPage">
+
+    <ScrollView>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <ImageButton Source="back.png" Grid.Row="0" Grid.Column="0" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
+                             Clicked="GoBack_Clicked"/>
+                <Label Text="Tutor Name" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1" FontSize="28" 
+                         VerticalTextAlignment="Center" TextColor="Black" Margin="20,0,0,0"/>
+
+                <Label Text="Students:" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="2" FontSize="20" 
+                         VerticalTextAlignment="Center" TextColor="Black" Margin="20,0,0,0"/>
+
+            </Grid>
+        </StackLayout>
+        </ScrollView>
+</ContentPage>

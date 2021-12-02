@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.TutorAssignmentMenuPage">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ImageButton Source="back.png" Grid.Row="0" Grid.Column="0" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
+                             Clicked="GoBack_Clicked"/>
+
+            <Label Text="Tutor" Grid.Column="2" Grid.Row="2" FontSize="30" TextColor="Black"/>
+            
+            <Label Text="Name:" Grid.Column="1" Grid.Row="3" FontSize="20" TextColor="Black"/>
+            <Label Text="XXXXX" Grid.Column="1" Grid.Row="4" FontSize="20" TextColor="Black"/>
+
+            <Label Text="UserId:" Grid.Column="1" Grid.Row="5" FontSize="20" TextColor="Black"/>
+            <Label Text="XXXXX" Grid.Column="1" Grid.Row="6" FontSize="20" TextColor="Black"/>
+
+            <Label Text="Hours:" Grid.Column="1" Grid.Row="7" FontSize="20" TextColor="Black"/>
+            <Label Text="XXXXX" Grid.Column="1" Grid.Row="8" FontSize="20" TextColor="Black"/>
+
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Column="1" Grid.Row="9"
+                   Grid.ColumnSpan="3">
+                <Entry x:Name="TeacherId" Placeholder="Add Teacher Id"/>
+            </Frame>
+
+            <Button x:Name="AddTutorClicked" Text="Add Teacher Id" 
+                    BackgroundColor="#5578C9" TextColor="White"
+                    Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"
+                    Clicked="AddTutor_Clicked" Padding="0,10,0,0"></Button>
+
+            <ImageButton Source="see.jpg" Grid.Column="3" Grid.Row="8"
+                         HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF"  
+                         Clicked="ViewTutoringHours_Clicked"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>

@@ -17,7 +17,7 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-        </Grid>
+        
         <Image Source="Tutoring_Logo.gif" Grid.Row="0" Grid.ColumnSpan="3"/>
         <Label Text="Login" TextColor="Black" Grid.Row="1" Grid.Column="0" FontSize="32" Margin="10"/>
 
@@ -30,7 +30,7 @@
         <Button x:Name="Login" Text="Login" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="3" Margin="15, 0, 15, 0" Clicked ="Login_Clicked"/>
 
         <Button x:Name="Register" Text="Register" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="4" Margin="15, 0, 15, 0" Clicked ="Register_Clicked"/>
-
+        </Grid>
     </StackLayout>
 
 </ContentPage>
