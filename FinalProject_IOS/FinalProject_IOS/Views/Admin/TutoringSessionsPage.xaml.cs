@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FinalProject_IOS.Views
+namespace FinalProject_IOS.Views.Admin
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TutoringSessionsPage : ContentPage

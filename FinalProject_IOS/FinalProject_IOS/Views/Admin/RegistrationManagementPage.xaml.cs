@@ -7,24 +7,19 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FinalProject_IOS.Views
+namespace FinalProject_IOS.Views.Admin
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SessionListforTeachers : ContentPage
+    public partial class RegistrationManagementPage : ContentPage
     {
-        public SessionListforTeachers()
+        public RegistrationManagementPage()
         {
             InitializeComponent();
         }
 
-        private void backImageButton_Clicked(object sender, EventArgs e)
+        private void GoBack_Clicked(object sender, EventArgs e)
         {
-
-        }
-
-        private void addImageButton_Clicked(object sender, EventArgs e)
-        {
-
+            Navigation.PushAsync(new AdminDashboardPage());
         }
     }
 }

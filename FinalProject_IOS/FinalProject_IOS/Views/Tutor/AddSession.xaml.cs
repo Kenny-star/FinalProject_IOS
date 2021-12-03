@@ -7,19 +7,24 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FinalProject_IOS.Views
+namespace FinalProject_IOS.Views.Teacher
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StudentsListPage : ContentPage
+    public partial class AddSession : ContentPage
     {
-        public StudentsListPage()
+        public AddSession()
         {
             InitializeComponent();
         }
 
-        private void GoBack_Clicked(object sender, EventArgs e)
+        private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AssignTutorsPage());
+
+        }
+
+        private void AddTutoringSessionClicked_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

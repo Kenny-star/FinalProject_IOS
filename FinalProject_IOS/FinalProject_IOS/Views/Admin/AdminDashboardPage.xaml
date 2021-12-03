@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FinalProject_IOS.Views.AdminDashboardPage">
+             x:Class="FinalProject_IOS.Views.Admin.AdminDashboardPage">
     
     
     <StackLayout>
@@ -28,17 +28,17 @@
 
         <Label Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
 
-        <Button x:Name="manageCourses" Text="Manage Courses" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="3" 
+        <Button x:Name="ManageCourses" Text="Manage Courses" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="3" 
                 Margin="15, 0, 15, 0" Clicked="ManageCourses_Clicked"/>
 
         <Label Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
 
-        <Button x:Name="mangageRegistrations" Text="Manage Registrations" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="6"
-                Margin="15, 0, 15, 0" Clicked="MangageRegistrations_Clicked"/>
+        <Button x:Name="MangageRegistrations" Text="Manage Registrations" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="6"
+                Margin="15, 0, 15, 0" Clicked="ManageRegistrations_Clicked"/>
 
         <Label Grid.Row="7" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
 
-        <Button x:Name="assignTutors" Text="Assign Tutors" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="9"
+        <Button x:Name="AssignTutors" Text="Assign Tutors" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="9"
                 Margin="15, 0, 15, 0" Clicked="AssignTutors_Clicked"/>
 
 

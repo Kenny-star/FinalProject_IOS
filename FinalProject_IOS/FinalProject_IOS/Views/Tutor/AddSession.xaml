@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FinalProject_IOS.Views.Add_CoursePage">
+             x:Class="FinalProject_IOS.Views.Teacher.AddSession">
     <StackLayout>
         <Grid>
             <Grid.RowDefinitions>
@@ -13,37 +13,32 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
             <ImageButton Source="back.png" Grid.Row="0" HorizontalOptions="Start" 
                          HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF"
-                         Margin="15,0,0,20" Clicked="BackButton_Clicked"/>
+                         Margin="15,0,0,20" Clicked="ImageButton_Clicked"/>
 
-            <Label Text="Add a Course" TextColor="Black" Grid.Row="2"
+            <Label Text="Add a Session" TextColor="Black" Grid.Row="2"
                    FontSize="38" HorizontalTextAlignment="Center"/>
 
             <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Row="3"
                    Margin="50,10,50,10">
-                <Entry x:Name="CourseId" Placeholder="Add Course Id"/>
-            </Frame>
-            
-            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Row="4"
-                   Margin="50,10,50,10">
                 <Entry x:Name="CourseName" Placeholder="Add Course Name"/>
             </Frame>
 
-            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Row="5"
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Row="4"
                    Margin="50,10,50,10">
-                <Entry x:Name="TeacherName" Placeholder="Add Teacher Name"/>
+                <Entry x:Name="Hours" Placeholder="Add Amount of Hours" Keyboard="Numeric"/>
             </Frame>
 
-            <Button x:Name="AddTutoringSessionClicked" Text="Add Tutoring Session" 
+            <Button x:Name="AddTutoringSessionClicked" Text="Add New Session" 
                     BackgroundColor="#5578C9" TextColor="White" Margin="50,10,50,10"
-                    Grid.Row="6"
-                    Clicked="AddTutoringSession_Clicked"></Button>
+                    Grid.Row="5"
+                    Clicked="AddTutoringSessionClicked_Clicked"></Button>
         </Grid>
     </StackLayout>
 </ContentPage>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FinalProject_IOS.Views
+namespace FinalProject_IOS.Views.Admin
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AdminDashboardPage : ContentPage
@@ -22,7 +22,7 @@ namespace FinalProject_IOS.Views
             Navigation.PushAsync(new CourseManagementPage());
         }
 
-        private void MangageRegistrations_Clicked(object sender, EventArgs e)
+        private void ManageRegistrations_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new RegistrationManagementPage());
         }

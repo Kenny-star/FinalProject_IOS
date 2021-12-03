@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FinalProject_IOS.Views
+namespace FinalProject_IOS.Views.Teacher
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TeacherDashboard : ContentPage
@@ -19,15 +19,15 @@ namespace FinalProject_IOS.Views
 
         private void MonitorSessions_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new SessionListforTeachers());
         }
 
         private void MonitorStudents_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new TuteeListPage());
         }
 
-        private void manageRegistrations_Clicked(object sender, EventArgs e)
+        private void ManageRegistrations_Clicked(object sender, EventArgs e)
         {
 
         }

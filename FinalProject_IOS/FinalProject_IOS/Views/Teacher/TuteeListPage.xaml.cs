@@ -7,22 +7,17 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FinalProject_IOS.Views
+namespace FinalProject_IOS.Views.Teacher
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddSession : ContentPage
+    public partial class TuteeListPage : ContentPage
     {
-        public AddSession()
+        public TuteeListPage()
         {
             InitializeComponent();
         }
 
         private void ImageButton_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddTutoringSessionClicked_Clicked(object sender, EventArgs e)
         {
 
         }

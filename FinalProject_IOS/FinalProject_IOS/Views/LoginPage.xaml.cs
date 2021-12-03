@@ -17,9 +17,12 @@ namespace FinalProject_IOS.Views
             InitializeComponent();
         }
 
-        private void Login_Clicked(object sender, EventArgs e)
-        {
-
+        private async void Login_Clicked(object sender, EventArgs e)
+        {/*
+            bool notFound = false;
+            string adminUsername = "admin";
+            string adminPassword = "mystrongpassword";
+            */
         }
 
         private void Register_Clicked(object sender, EventArgs e)

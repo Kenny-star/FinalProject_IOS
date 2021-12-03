@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FinalProject_IOS.Views.AssignTutorsPage">
+             x:Class="FinalProject_IOS.Views.Admin.StudentsListPage">
 
     <ScrollView>
         <StackLayout>
@@ -24,17 +24,13 @@
 
                 <ImageButton Source="back.png" Grid.Row="0" Grid.Column="0" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
                              Clicked="GoBack_Clicked"/>
-                <Label Text="Assign Tutors" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1" FontSize="28" 
+                <Label Text="Tutor Name" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1" FontSize="28" 
                          VerticalTextAlignment="Center" TextColor="Black" Margin="20,0,0,0"/>
 
-                <Label Text="Tutors:" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="2" FontSize="20" 
+                <Label Text="Students:" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="2" FontSize="20" 
                          VerticalTextAlignment="Center" TextColor="Black" Margin="20,0,0,0"/>
 
-                <ImageButton Source="see.jpg" Grid.Row="3" Grid.Column="3" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
-                             Clicked="ViewTutor_Clicked"/>
-                <ImageButton Source="assign.png" Grid.Row="3" Grid.Column="4" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
-                             Clicked="AssignTutor_Clicked"/>
             </Grid>
         </StackLayout>
-    </ScrollView>
+        </ScrollView>
 </ContentPage>

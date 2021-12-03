@@ -17,34 +17,35 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Views\Student\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\AdminDashboardPage.xaml.cs">
+    <Compile Update="Views\Admin\AdminDashboardPage.xaml.cs">
       <DependentUpon>AdminDashboardPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\RegistrationDeniedPage.xaml.cs">
       <DependentUpon>RegistrationDeniedPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\StudentsListPage.xaml.cs">
+    <Compile Update="Views\Admin\StudentsListPage.xaml.cs">
       <DependentUpon>StudentsListPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\AddSession.xaml">
+    <EmbeddedResource Update="Views\Tutor\AddSession.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Add_CoursePage.xaml">
+    <EmbeddedResource Update="Views\Admin\Add_CoursePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\AdminDashboardPage.xaml">
+    <EmbeddedResource Update="Views\Admin\AdminDashboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\AssignTutorsPage.xaml">
+    <EmbeddedResource Update="Views\Admin\AssignTutorsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CourseManagementPage.xaml">
+    <EmbeddedResource Update="Views\Admin\CourseManagementPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\GradeSession.xaml">
@@ -62,7 +63,7 @@
     <EmbeddedResource Update="Views\RegistrationDeniedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\RegistrationManagementPage.xaml">
+    <EmbeddedResource Update="Views\Admin\RegistrationManagementPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\RegistrationPending.xaml">
@@ -71,25 +72,25 @@
     <EmbeddedResource Update="Views\SessionAssignment.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SessionListforTeachers.xaml">
+    <EmbeddedResource Update="Views\Teacher\SessionListforTeachers.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SessionListTutors.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\StudentsListPage.xaml">
+    <EmbeddedResource Update="Views\Admin\StudentsListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TeacherDashboard.xaml">
+    <EmbeddedResource Update="Views\Teacher\TeacherDashboard.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TuteeListPage.xaml">
+    <EmbeddedResource Update="Views\Teacher\TuteeListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TutorAssignmentMenuPage.xaml">
+    <EmbeddedResource Update="Views\Admin\TutorAssignmentMenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TutoringSessionsPage.xaml">
+    <EmbeddedResource Update="Views\Admin\TutoringSessionsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FinalProject_IOS.Views
+namespace FinalProject_IOS.Views.Admin
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TutorAssignmentMenuPage : ContentPage
+    public partial class StudentsListPage : ContentPage
     {
-        public TutorAssignmentMenuPage()
+        public StudentsListPage()
         {
             InitializeComponent();
         }
@@ -20,16 +20,6 @@ namespace FinalProject_IOS.Views
         private void GoBack_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new AssignTutorsPage());
-        }
-
-        private void AddTutor_Clicked(object sender, EventArgs e)
-        {
-            //Insert to db
-        }
-
-        private void ViewTutoringHours_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new TutoringSessionsPage());
         }
     }
 }
