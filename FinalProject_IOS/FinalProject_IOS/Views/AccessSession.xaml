@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.AccessSession">
+
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height=".5*"></RowDefinition>
+                <RowDefinition Height=".5*"></RowDefinition>
+                <RowDefinition Height=".5*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ImageButton Source="back.png" Grid.Row="0" HorizontalOptions="Start" 
+                         HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF"
+                         Margin="15,0,0,20" Clicked="ImageButton_Clicked"/>
+
+            <Label Text="Access Session" TextColor="Black" Grid.Row="1"
+                   FontSize="38" HorizontalTextAlignment="Center"/>
+
+            <Label Text="Would you recommend this tutor?" TextColor="Black" FontSize="20" Grid.Row="2"
+                   Margin="50,10,50,0"></Label>
+
+
+            <RadioButton x:Name="RadioYes" Grid.Row="3" Content="Yes" Margin="50,0,50,0"></RadioButton>
+
+            <RadioButton x:Name="RadioNo" Grid.Row="4" Content="No" Margin="50,0,50,0"></RadioButton>
+
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Row="5"
+                   Grid.RowSpan="3"
+                   Margin="50,10,50,10">
+                <Editor x:Name="CourseName" Placeholder="Enter a comment"/>
+            </Frame>
+
+            <!--<Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Row="5"
+                   Margin="50,10,50,10">
+                <Entry x:Name="TeacherName" Placeholder="Add Teacher Name"/>
+            </Frame>-->
+
+            <Button x:Name="AccessSessionClicked" Text="Submit" 
+                    BackgroundColor="#5578C9" TextColor="White" Margin="50,10,50,10"
+                    Grid.Row="8"
+                    Clicked="AccessSessionClicked_Clicked"></Button>
+        </Grid>
+    </StackLayout>
+</ContentPage>
