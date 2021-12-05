@@ -1,56 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FinalProject_IOS.Views.RegisterPage">
+             x:Class="FinalProject_IOS.Views.RegisterPage"
+             BackgroundColor="White">
     <ScrollView>
         <StackLayout>
+            <Image Source="Tutoring_Logo.gif" HorizontalOptions="Center"/>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"> </RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-            
-            <Image Source="Tutoring_Logo.gif" Grid.Row="1" Grid.ColumnSpan="3"/>
-            <Label Text="Register" TextColor="Black" Grid.Row="2" Grid.Column="0" FontSize="32" Margin="10"/>
 
-
-            <Entry x:Name="username" Placeholder="Enter username" Grid.Column="2" Grid.Row="3" Margin="10"/>
-
-
-            <Entry x:Name="password" Placeholder="Enter password" Grid.Column="2" Grid.Row="4" IsPassword="True" Margin="10"/>
-
-            <Entry x:Name="firstname" Placeholder="Enter First Name" Grid.Column="2" Grid.Row="5" Margin="10"/>
-
-            <Entry x:Name="lastname" Placeholder="Enter Last Name" Grid.Column="2" Grid.Row="6" Margin="10"/>
-
-            <Entry x:Name="email" Placeholder="Enter Email" Grid.Column="2" Grid.Row="7" Margin="10"/>
-
-            <Entry x:Name="course" Placeholder="Enter Course Name" Grid.Column="2" Grid.Row="8" Margin="10"/>
-
-            <RadioButton x:Name="Tutor" Grid.Column="2" Grid.Row="9" Content="Tutor"></RadioButton>
-
-            <RadioButton x:Name="Teacher" Grid.Column="2" Grid.Row="10" Content="Teacher"></RadioButton>
-
-            <RadioButton x:Name="Tutee" Grid.Column="2" Grid.Row="11" Content="Tutee"></RadioButton>
-
-
-            <Button x:Name="Register" Text="Register" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="10" Margin="30, 0, 15, 0" Clicked ="Register_Clicked"/>
+                <Label Text="Register" TextColor="Black" Grid.Row="1" Grid.Column="0" FontSize="31" Margin="10,0,0,0"/>
+                
+                <Entry x:Name="username" Placeholder="Enter username" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Margin="10,0,0,0"/>
+                <Entry x:Name="password" Placeholder="Enter password" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" IsPassword="True" Margin="10,0,0,0"/>
+                <Entry x:Name="firstname" Placeholder="Enter First Name" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4" Margin="10,0,0,0"/>
+                <Entry x:Name="lastname" Placeholder="Enter Last Name" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="5" Margin="10,0,0,0"/>
+                <Entry x:Name="email" Placeholder="Enter Email" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="6" Margin="10,0,0,0"/>
+                <Entry x:Name="course" Placeholder="Enter Course Name" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="7" Margin="10,0,0,0"/>
+                
+                <RadioButton x:Name="Tutor" Grid.Column="0" Grid.Row="8" Content="Tutor" Margin="10,0,0,0"></RadioButton>
+                <RadioButton x:Name="Teacher" Grid.Column="0" Grid.Row="9" Content="Teacher" Margin="10,0,0,0"></RadioButton>
+                <RadioButton x:Name="Tutee" Grid.Column="0" Grid.Row="10" Content="Tutee" Margin="10,0,0,0"></RadioButton>
+                
+                <Button x:Name="Register" Text="Register" BackgroundColor="#4682b4" TextColor="White" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="11" Margin="10, 0, 15, 10" Clicked ="Register_Clicked"/>
             </Grid>
         </StackLayout>
     </ScrollView>
