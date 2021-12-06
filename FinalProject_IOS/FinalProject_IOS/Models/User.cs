@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FinalProject_IOS.Models
 {
-    class User
+    public class User
     {
         public string accountId { get; set; }
         public string firstName { get; set; }
