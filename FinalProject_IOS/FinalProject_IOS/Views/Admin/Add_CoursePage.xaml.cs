@@ -12,20 +12,24 @@ namespace FinalProject_IOS.Views.Admin
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Add_CoursePage : ContentPage
     {
-        // Initialize Firebase helper
-
+        // Initialize Firebase helper class
         FirebaseHelper fbHelper = new FirebaseHelper();
 
         public Add_CoursePage()
         {
             InitializeComponent();
-
-            string courseId = CourseIdField.Text;
         }
 
+
+        // Add course
         private async void AddTutoringSession_Clicked(object sender, EventArgs e)
         {
-            await fbHelper.addCourse(CourseIdField.Text, "Tristan", "Giguere");
+
+            string courseId = CourseId.Text;
+            string courseName = CourseName.Text;
+            string teacherName = TeacherName.Text;
+
+            await fbHelper.addCourse(courseId, courseName, teacherName);
         }
 
         private void BackButton_Clicked(object sender, EventArgs e)
