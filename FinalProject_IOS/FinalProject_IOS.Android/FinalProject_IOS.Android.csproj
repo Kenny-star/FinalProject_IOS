@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -88,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FinalProject_IOS\FinalProject_IOS.csproj">
-      <Project>{A8DF7BAC-B073-405C-8663-BF7D95C7711D}</Project>
+      <Project>{A92038D5-034B-4E91-A3D7-22B181A7E83D}</Project>
       <Name>FinalProject_IOS</Name>
     </ProjectReference>
   </ItemGroup>
