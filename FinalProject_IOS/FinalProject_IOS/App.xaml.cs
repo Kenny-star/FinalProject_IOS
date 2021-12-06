@@ -1,4 +1,5 @@
 ﻿using FinalProject_IOS.Views;
+using FinalProject_IOS.Views.Admin;
 using FinalProject_IOS.Views.Teacher;
 using System;
 using Xamarin.Forms;
@@ -12,7 +13,7 @@ namespace FinalProject_IOS
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new Add_CoursePage());
         }
 
         protected override void OnStart()

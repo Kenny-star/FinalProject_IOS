@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using FinalProject_IOS.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,15 +12,24 @@ namespace FinalProject_IOS.Views.Admin
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Add_CoursePage : ContentPage
     {
+        // Initialize Firebase helper class
+        FirebaseHelper fbHelper = new FirebaseHelper();
+
         public Add_CoursePage()
         {
             InitializeComponent();
         }
 
-        private void AddTutoringSession_Clicked(object sender, EventArgs e)
+
+        // Add course
+        private async void AddTutoringSession_Clicked(object sender, EventArgs e)
         {
-            /*Will Call in database instance and field names to 
-             issue an insert*/
+
+            string courseId = CourseId.Text;
+            string courseName = CourseName.Text;
+            string teacherName = TeacherName.Text;
+
+            await fbHelper.addCourse(courseId, courseName, teacherName);
         }
 
         private void BackButton_Clicked(object sender, EventArgs e)
