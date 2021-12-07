@@ -31,7 +31,26 @@ namespace FinalProject_IOS.Models
 
 
 
+        // Register new teacher (pending status) to database
+        public async Task registerTeacher(string accountId, string fName, string lName, string email, string courseId, string uName, string pwd)
+        {
 
+            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, firstName = fName, lastName = lName, email = email, courseId = courseId, userName = uName, password = pwd, grade = "0", role = Roles.Teacher, userStatus = Status.Pending });
+        }
+
+        // Register new student (pending status) to database
+        public async Task registerStudent(string accountId, string fName, string lName, string email, string courseId, string uName, string pwd, string grade)
+        {
+
+            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, firstName = fName, lastName = lName, email = email, courseId = courseId, userName = uName, password = pwd, grade = grade, role = Roles.Tutee, userStatus = Status.Pending });
+        }
+
+        // Register new tutor (pending status) to database
+        public async Task registerTutor(string accountId, string fName, string lName, string email, string courseId, string uName, string pwd, string grade)
+        {
+
+            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, firstName = fName, lastName = lName, email = email, courseId = courseId, userName = uName, password = pwd, grade = grade, role = Roles.Tutor, userStatus = Status.Pending });
+        }
 
 
 
