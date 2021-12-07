@@ -18,6 +18,8 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -41,6 +43,11 @@
 
         <Button x:Name="AssignTutors" Text="Assign Tutors" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="9"
                 Margin="15, 0, 15, 0" Clicked="AssignTutors_Clicked"/>
+
+        <Label Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+
+        <Button x:Name="Logout" Text="Logout" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="11"
+                Margin="15, 0, 15, 0" Clicked="Logout_Clicked"/>
 
 
     </StackLayout>

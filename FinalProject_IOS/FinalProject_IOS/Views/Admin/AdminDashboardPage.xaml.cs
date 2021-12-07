@@ -29,7 +29,12 @@ namespace FinalProject_IOS.Views.Admin
 
         private void AssignTutors_Clicked(object sender, EventArgs e)
         {
-           Navigation.PushAsync(new AssignTutorsPage());
+            Navigation.PushAsync(new AssignTutorsPage());
+        }
+
+        private void Logout_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new LoginPage());
         }
     }
 }
