@@ -5,6 +5,7 @@
              BackgroundColor="White">
     <ScrollView>
         <StackLayout>
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -27,6 +28,59 @@
                 <Label Text="Registration Management" Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="1" FontSize="28" 
                          VerticalTextAlignment="Center" TextColor="Black" Margin="20,0,0,0"/>
             </Grid>
+            
+            <ListView x:Name="usersPendingListView"
+                      ItemsSource="{Binding usersPending}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Margin="10,0,0,0"
+                                    Text="{Binding firstName}" FontSize="Medium"/>
+                                <Label Grid.Row="0" Grid.Column="1"
+                                    Text="{Binding lastName}" FontSize="Medium"/>
+                                <Label Grid.Row="0" Grid.Column="2"
+                                    Text="{Binding role}" FontSize="Medium"/>
+
+                                <Image Source="accept.png"
+                                       Grid.Row="0" Grid.Column="3"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="AcceptTap"
+                                            Tapped="Accept_Tapped"
+                                            CommandParameter="{Binding accountId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Image Source="deny.png"
+                                       Grid.Row="0" Grid.Column="4"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="DenyTap"
+                                            Tapped="Deny_Tapped"
+                                            CommandParameter="{Binding accountId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
         </StackLayout>
     </ScrollView>
 </ContentPage>

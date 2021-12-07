@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace FinalProject_IOS.Views.Teacher
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TeacherDashboard : ContentPage
+    public partial class TeacherDashboardPage : ContentPage
     {
-        public TeacherDashboard()
+        public TeacherDashboardPage()
         {
             InitializeComponent();
         }

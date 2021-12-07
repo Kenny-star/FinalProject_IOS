@@ -11,25 +11,12 @@ namespace FinalProject_IOS.Models
         public string lastName { get; set; }
         public string email { get; set; }
         public string courseId { get; set; }
+        public List<Course> courseLoad { get; set; }
         public string userName { get; set; }
         public string password { get; set; }
         public string grade { get; set; }
-        public Roles role { get; set; }
-        public Status userStatus { get; set; }
-        
-    }
+        public string role { get; set; }
+        public string userStatus { get; set; }
 
-    public enum Status
-    {
-        Pending,
-        Accepted,
-        Declined
-    }
-
-    public enum Roles
-    {
-        Teacher,
-        Tutee,
-        Tutor
     }
 }

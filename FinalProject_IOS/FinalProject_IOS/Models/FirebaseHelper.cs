@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Firebase;
 using Firebase.Database;
 using Firebase.Database.Query;
+using Newtonsoft.Json;
 
 namespace FinalProject_IOS.Models
 {
     public class FirebaseHelper
     {
-        FirebaseClient firebaseClient = new FirebaseClient("https://ios-final-project-ed51f-default-rtdb.firebaseio.com/");
+        FirebaseClient firebaseClient = new FirebaseClient("https://student-ceef8-default-rtdb.firebaseio.com/");
 
         // Add new course to Firebase database
         public async Task addCourse(string courseId, string name, string teacherName) {
@@ -29,32 +30,80 @@ namespace FinalProject_IOS.Models
               }).ToList();
         }
 
-
-
-        // Register new teacher (pending status) to database
-        public async Task registerTeacher(string accountId, string fName, string lName, string email, string courseId, string uName, string pwd)
+        public async Task addUserToPendingList(string accountId, string courseId, string username, string password, string firstname, string lastname, string email, string role, string status)
         {
 
-            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, firstName = fName, lastName = lName, email = email, courseId = courseId, userName = uName, password = pwd, grade = "0", role = Roles.Teacher, userStatus = Status.Pending });
+            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = password, firstName = firstname, lastName = lastname, email = email, role = role, userStatus = status});
         }
 
-        // Register new student (pending status) to database
-        public async Task registerStudent(string accountId, string fName, string lName, string email, string courseId, string uName, string pwd, string grade)
+        public async Task<User> GetByID(string sID)
         {
-
-            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, firstName = fName, lastName = lName, email = email, courseId = courseId, userName = uName, password = pwd, grade = grade, role = Roles.Tutee, userStatus = Status.Pending });
+            return (await firebaseClient.Child(nameof(User)
+                    + "/" + sID).OnceSingleAsync<User>());
         }
 
-        // Register new tutor (pending status) to database
-        public async Task registerTutor(string accountId, string fName, string lName, string email, string courseId, string uName, string pwd, string grade)
+        public async Task<bool> Accept(string sID)
         {
+            var toUpdatePerson = (await firebaseClient
+              .Child("Users")
+              .OnceAsync<User>()).Where(a => a.Object.accountId == sID).FirstOrDefault();
 
-            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, firstName = fName, lastName = lName, email = email, courseId = courseId, userName = uName, password = pwd, grade = grade, role = Roles.Tutor, userStatus = Status.Pending });
+            await firebaseClient
+              .Child("Users")
+              .Child(toUpdatePerson.Key)
+              .PutAsync(new User()
+              {
+                  accountId = toUpdatePerson.Object.accountId,
+                  courseId = toUpdatePerson.Object.courseId,
+                  email = toUpdatePerson.Object.email,
+                  firstName = toUpdatePerson.Object.firstName,
+                  lastName = toUpdatePerson.Object.lastName,
+                  password = toUpdatePerson.Object.password,
+                  role = toUpdatePerson.Object.role,
+                  userName = toUpdatePerson.Object.userName,
+                  userStatus = "Accepted"
+              });
+
+            return true;
         }
 
+        public async Task<bool> Deny(string sID)
+        {
+            var toUpdatePerson = (await firebaseClient
+              .Child("Users")
+              .OnceAsync<User>()).Where(a => a.Object.accountId == sID).FirstOrDefault();
 
+            await firebaseClient
+              .Child("Users")
+              .Child(toUpdatePerson.Key)
+              .PutAsync(new User()
+                {
+                    accountId = toUpdatePerson.Object.accountId,
+                    courseId = toUpdatePerson.Object.courseId,
+                    email = toUpdatePerson.Object.email,
+                    firstName = toUpdatePerson.Object.firstName,
+                    lastName = toUpdatePerson.Object.lastName,
+                    password = toUpdatePerson.Object.password,
+                    role = toUpdatePerson.Object.role,
+                    userName = toUpdatePerson.Object.userName,
+                    userStatus = "Denied"
+                });
 
+            return true;
+        }
 
+        public async Task<List<User>> GetAllUsersPending()
+        {
+            return (await firebaseClient.Child("Users").OnceAsync<User>()).Select(item => new User
+            {
+                accountId = item.Object.accountId,
+                firstName = item.Object.firstName,
+                lastName = item.Object.lastName,
+                courseId = item.Object.courseId,
+                role = item.Object.role
+
+            }).ToList();
+        }
 
 
         public FirebaseHelper()

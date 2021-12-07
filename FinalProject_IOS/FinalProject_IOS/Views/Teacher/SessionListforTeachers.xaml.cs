@@ -19,7 +19,7 @@ namespace FinalProject_IOS.Views.Teacher
 
         private void backImageButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new TeacherDashboard());
+            //Navigation.PushAsync(new TeacherDashboard());
         }
 
     }

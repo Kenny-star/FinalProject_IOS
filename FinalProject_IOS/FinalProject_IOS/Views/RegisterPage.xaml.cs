@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using FinalProject_IOS.Models;
 using Xamarin.Forms;
@@ -23,32 +24,89 @@ namespace FinalProject_IOS.Views
 
         private async void Register_Clicked(object sender, EventArgs e)
         {
-            string accountId = Guid.NewGuid().ToString("N");
-            string userName = username.Text;
-            string pwd = password.Text;
-            string firstName = firstname.Text;
-            string lastName = lastname.Text;
-            string emailAddr = email.Text;
-            string courseName = course.Text;
+            string errorMessagePrompt = "ERROR! Please fill in the following inputs:\n\n";
 
-            // Register tutor to DB
-            if (Tutor.IsChecked) { 
-                await fbHelper.registerTutor(accountId, firstName, lastName, emailAddr, courseName, userName, pwd, "0");
-                await DisplayAlert("Account created", "Tutor account successfully created", "OK");
+            if (username.Text == null || username.Text == "")
+            {
+                errorMessagePrompt += "- Enter a valid username -\n";
+            }
+            if (password.Text == null || password.Text == "")
+            {
+                errorMessagePrompt += "- Enter a valid password -\n";
+            }
+            if (password.Text != null && password.Text != "")
+            {
+                if (password.Text.Length <= 10)
+                {
+                    errorMessagePrompt += "- Enter a valid password: Need more than 10 characters -\n";
+                }
+            }
+            if (firstname.Text == null || firstname.Text == "")
+            {
+                errorMessagePrompt += "- Enter a valid first name -\n";
+            }
+            if (lastname.Text == null || lastname.Text == "")
+            {
+                errorMessagePrompt += "- Enter a valid last name -\n";
             }
 
-            // Register teacher to DB
-            if (Teacher.IsChecked) {
-                await fbHelper.registerTeacher(accountId, firstName, lastName, emailAddr, courseName, userName, pwd);
-                await DisplayAlert("Account created", "Teacher account successfully created", "OK");
+            if (email.Text == null || email.Text == "")
+            {
+                errorMessagePrompt += "- Enter a valid email -";
             }
 
-            // Register student to DB
-            if (Tutee.IsChecked) {
-                await fbHelper.registerStudent(accountId, firstName, lastName, emailAddr, courseName, userName, pwd, "0");
-                await DisplayAlert("Account created", "Student account successfully created", "OK");
+            if (!Tutor.IsChecked && !Tutee.IsChecked && !Teacher.IsChecked)
+            {
+                errorMessagePrompt += "\n- Enter a valid role -";
             }
 
+            if (email.Text != null && !Regex.IsMatch(email.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                errorMessagePrompt += "- Enter a valid email -";
+            }
+            if (errorMessagePrompt != "ERROR! Please fill in the following inputs:\n\n")
+            {
+                await DisplayAlert("Alert", errorMessagePrompt, "OK");
+            }
+
+            if (errorMessagePrompt == "ERROR! Please fill in the following inputs:\n\n")
+            {
+
+
+                string accountId = Guid.NewGuid().ToString("N");
+                string userName = username.Text;
+                string pwd = password.Text;
+                string firstName = firstname.Text;
+                string lastName = lastname.Text;
+                string emailAddr = email.Text;
+                string courseName = course.Text;
+
+                // Register tutor to DB
+                if (Tutor.IsChecked)
+                {
+                    string role = "Tutor";
+                    await fbHelper.addUserToPendingList(accountId, courseName, userName, pwd, firstName, lastName, emailAddr, role, "Pending");
+                    await DisplayAlert("Account created", "Tutor account successfully created", "OK");
+
+                    await Navigation.PushAsync(new LoginPage());
+                }
+                if (Teacher.IsChecked)
+                {
+                    string role = "Teacher";
+                    await fbHelper.addUserToPendingList(accountId, courseName, userName, pwd, firstName, lastName, emailAddr, role, "Pending");
+                    await DisplayAlert("Account created", "Teacher account successfully created", "OK");
+
+                    await Navigation.PushAsync(new LoginPage());
+                }
+                if (Tutee.IsChecked)
+                {
+                    string role = "Tutee";
+                    await fbHelper.addUserToPendingList(accountId, courseName, userName, pwd, firstName, lastName, emailAddr, role, "Pending");
+                    await DisplayAlert("Account created", "Tutee account successfully created", "OK");
+
+                    await Navigation.PushAsync(new LoginPage());
+                }
+            }
         }
     }
 }                                              

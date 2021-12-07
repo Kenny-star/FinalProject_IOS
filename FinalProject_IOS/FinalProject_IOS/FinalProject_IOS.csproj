@@ -30,6 +30,9 @@
     <Compile Update="Views\Admin\StudentsListPage.xaml.cs">
       <DependentUpon>StudentsListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Teacher\TeacherDashboardPage.xaml.cs">
+      <DependentUpon>TeacherDashboardPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -81,7 +84,7 @@
     <EmbeddedResource Update="Views\Admin\StudentsListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Teacher\TeacherDashboard.xaml">
+    <EmbeddedResource Update="Views\Teacher\TeacherDashboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Teacher\TuteeListPage.xaml">
@@ -91,6 +94,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Admin\TutoringSessionsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tutor\TutorDashboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

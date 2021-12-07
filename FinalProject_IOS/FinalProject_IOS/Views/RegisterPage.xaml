@@ -33,7 +33,7 @@
                 <Entry x:Name="firstname" Placeholder="Enter First Name" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4" Margin="10,0,0,0"/>
                 <Entry x:Name="lastname" Placeholder="Enter Last Name" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="5" Margin="10,0,0,0"/>
                 <Entry x:Name="email" Placeholder="Enter Email" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="6" Margin="10,0,0,0"/>
-                <Entry x:Name="course" Placeholder="Enter Course Name" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="7" Margin="10,0,0,0"/>
+                <Entry x:Name="course" Placeholder="Enter Course Id" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="7" Margin="10,0,0,0"/>
                 
                 <RadioButton x:Name="Tutor" Grid.Column="0" Grid.Row="8" Content="Tutor" Margin="10,0,0,0"></RadioButton>
                 <RadioButton x:Name="Teacher" Grid.Column="0" Grid.Row="9" Content="Teacher" Margin="10,0,0,0"></RadioButton>
