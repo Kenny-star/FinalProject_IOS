@@ -13,7 +13,7 @@ namespace FinalProject_IOS
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new Add_CoursePage());
         }
 
         protected override void OnStart()
