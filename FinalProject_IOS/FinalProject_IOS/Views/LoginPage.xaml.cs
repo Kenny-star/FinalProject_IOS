@@ -31,6 +31,8 @@ namespace FinalProject_IOS.Views
 
             List<User> pendingUsers = await util.GetAllUsersPending();
 
+
+
             
 
             if (username.Text == adminUsername && password.Text == adminPassword)
@@ -77,7 +79,7 @@ namespace FinalProject_IOS.Views
                             break;
                         }
                     }
-                    else if ((pendingUsers.Count == 0 && username.Text != adminUsername && password.Text != adminPassword) || notFound)
+                    else if ((pendingUsers.Count == 0 && username.Text != user.userName && password.Text != user.password) || notFound)
                     {
                         await DisplayAlert("Error!", "Incorrect Username or Password", "OK");
                     }
