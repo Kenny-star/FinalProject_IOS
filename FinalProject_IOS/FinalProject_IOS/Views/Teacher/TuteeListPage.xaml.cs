@@ -38,7 +38,7 @@ namespace FinalProject_IOS.Views.Teacher
         if (response)
         {
 
-            bool isDenied = await f.Deny(sID);
+            bool isDenied = await f.DenyUserAccessFromRegistration(sID);
             if (isDenied)
             {
                 await DisplayAlert("Info", "user is removed", "OK");
@@ -57,7 +57,7 @@ namespace FinalProject_IOS.Views.Teacher
         string sID = ((TappedEventArgs)e).Parameter.ToString();
         if (true)
         {
-            bool isDenied = await f.Accept(sID);
+            bool isDenied = await f.AcceptUserAccessFromRegistration(sID);
             if (isDenied)
             {
                 await DisplayAlert("Info", "user is accepted", "OK");

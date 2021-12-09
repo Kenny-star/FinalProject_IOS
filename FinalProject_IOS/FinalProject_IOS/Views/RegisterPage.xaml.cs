@@ -85,7 +85,7 @@ namespace FinalProject_IOS.Views
                 if (Tutor.IsChecked)
                 {
                     string role = "Tutor";
-                    await fbHelper.addUserToPendingList(accountId, courseName, userName, pwd, firstName, lastName, emailAddr, role, "Pending");
+                    await fbHelper.AddUserToPendingList(accountId, courseName, userName, pwd, firstName, lastName, emailAddr, role, "Pending");
                     await DisplayAlert("Account created", "Tutor account successfully created", "OK");
 
                     await Navigation.PushAsync(new LoginPage());
@@ -93,7 +93,7 @@ namespace FinalProject_IOS.Views
                 if (Teacher.IsChecked)
                 {
                     string role = "Teacher";
-                    await fbHelper.addUserToPendingList(accountId, courseName, userName, pwd, firstName, lastName, emailAddr, role, "Pending");
+                    await fbHelper.AddUserToPendingList(accountId, courseName, userName, pwd, firstName, lastName, emailAddr, role, "Pending");
                     await DisplayAlert("Account created", "Teacher account successfully created", "OK");
 
                     await Navigation.PushAsync(new LoginPage());
@@ -101,7 +101,7 @@ namespace FinalProject_IOS.Views
                 if (Tutee.IsChecked)
                 {
                     string role = "Tutee";
-                    await fbHelper.addUserToPendingList(accountId, courseName, userName, pwd, firstName, lastName, emailAddr, role, "Pending");
+                    await fbHelper.AddUserToPendingList(accountId, courseName, userName, pwd, firstName, lastName, emailAddr, role, "Pending");
                     await DisplayAlert("Account created", "Tutee account successfully created", "OK");
 
                     await Navigation.PushAsync(new LoginPage());

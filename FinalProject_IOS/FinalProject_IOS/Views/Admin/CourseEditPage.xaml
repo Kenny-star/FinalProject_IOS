@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.Admin.CourseEditPage">
+    
+    <StackLayout Padding="20"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand">
+        <Label Text="Course Edit"
+                  FontSize="Large"/>
+<!--
+        <Entry x:Name="txtsID"
+               IsVisible="false"/>
+-->
+        <Entry x:Name="courseID"
+               Placeholder="Enter Course Id"/>
+
+        <Entry x:Name="courseNAme"
+               Placeholder="Enter Course Name"/>
+
+        <Entry x:Name="teacherNAme"
+               Placeholder="Enter Teacher Name"
+                   Keyboard="Email"/>
+
+        <Button x:Name="EditCourse"
+                    Text="Save"
+                    CornerRadius="15"
+                    Clicked="EditButton_Clicked"/>
+    </StackLayout>
+</ContentPage>

@@ -30,6 +30,59 @@
                 <Label Text="Course Management" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1" FontSize="28" 
                          VerticalTextAlignment="Center" TextColor="Black" Margin="20,0,0,0"/>
             </Grid>
+
+            <ListView x:Name="coursesListView"
+                      ItemsSource="{Binding courses}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Margin="10,0,0,0"
+                                    Text="{Binding courseId}" FontSize="Medium"/>
+                                <Label Grid.Row="0" Grid.Column="1"
+                                    Text="{Binding courseName}" FontSize="Medium"/>
+                                <Label Grid.Row="0" Grid.Column="2"
+                                    Text="{Binding teacherName}" FontSize="Medium"/>
+
+                                <Image Source="add.png"
+                                       Grid.Row="0" Grid.Column="3"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="EditCourseTap"
+                                            Tapped="EditCourse_Tapped"
+                                            CommandParameter="{Binding courseId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Image Source="back.png"
+                                       Grid.Row="0" Grid.Column="4"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="DeleteCourseTap"
+                                            Tapped="DeleteCourse_Tapped"
+                                            CommandParameter="{Binding courseId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
         </StackLayout>
     </ScrollView>
 </ContentPage>

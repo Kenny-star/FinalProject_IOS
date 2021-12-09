@@ -22,7 +22,6 @@ namespace FinalProject_IOS.Views.Admin
 
         protected override async void OnAppearing()
         {
-            FirebaseHelper f = new FirebaseHelper();
 
             var usersPending = await f.GetAllUsers();
 
@@ -37,7 +36,7 @@ namespace FinalProject_IOS.Views.Admin
             if (response)
             {
                 
-                bool isDenied = await f.Deny(sID);
+                bool isDenied = await f.DenyUserAccessFromRegistration(sID);
                 if (isDenied)
                 {
                     await DisplayAlert("Info", "user is removed", "OK");
@@ -57,7 +56,7 @@ namespace FinalProject_IOS.Views.Admin
             if (true)
             {
                 //var user = await f.GetByID(sID);
-                bool isDenied = await f.Accept(sID);
+                bool isDenied = await f.AcceptUserAccessFromRegistration(sID);
                 if (isDenied)
                 {
                     await DisplayAlert("Info", "user is accepted", "OK");
