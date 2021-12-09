@@ -24,11 +24,10 @@ namespace FinalProject_IOS.Views.Admin
         {
             FirebaseHelper f = new FirebaseHelper();
 
-            var usersPending = await f.GetAllUsersPending();
-            usersPending.Where(u => u.userStatus != "Denied");
+            var usersPending = await f.GetAllUsers();
 
             usersPendingListView.ItemsSource = null;
-            usersPendingListView.ItemsSource = usersPending;
+            usersPendingListView.ItemsSource = usersPending.Where(u => u.role != "Tutee" && u.userStatus == "Pending");
         }
 
         private async void Deny_Tapped(object sender, EventArgs e)
@@ -37,7 +36,7 @@ namespace FinalProject_IOS.Views.Admin
             string sID = ((TappedEventArgs)e).Parameter.ToString();
             if (response)
             {
-                //var user = await f.GetByID(sID);
+                
                 bool isDenied = await f.Deny(sID);
                 if (isDenied)
                 {

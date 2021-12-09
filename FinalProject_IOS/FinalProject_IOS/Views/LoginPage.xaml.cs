@@ -27,25 +27,21 @@ namespace FinalProject_IOS.Views
             string adminUsername = "MyAdmin";
             string adminPassword = "MyStrongPassword!";
 
-            FirebaseHelper util = new FirebaseHelper();
+            FirebaseHelper f = new FirebaseHelper();
 
-            List<User> pendingUsers = await util.GetAllUsersPending();
+            List<User> Users = await f.GetAllUsers();
 
-            
 
             if (username.Text == adminUsername && password.Text == adminPassword)
             {
-                notFound = false;
                 await Navigation.PushAsync(new AdminDashboardPage());
 
             }
 
             else
             {
-
-                foreach (User user in pendingUsers)
+                foreach (User user in Users)
                 {
-
 
                     if (username.Text == user.userName && password.Text == user.password)
                     {
@@ -67,21 +63,29 @@ namespace FinalProject_IOS.Views
 
                         if (user.userStatus == "Pending")
                         {
+                            notFound = false;
                             await Navigation.PushAsync(new RegistrationPending());
                             break;
                         }
 
                         if (user.userStatus == "Denied")
                         {
+                            notFound = false;
                             await Navigation.PushAsync(new RegistrationDeniedPage());
                             break;
                         }
                     }
-                    else if ((pendingUsers.Count == 0 && username.Text != adminUsername && password.Text != adminPassword) || notFound)
-                    {
-                        await DisplayAlert("Error!", "Incorrect Username or Password", "OK");
-                    }
 
+                    else
+                    {
+                        notFound = true;
+                    }
+                    
+                }
+
+                if (notFound)
+                {
+                    await DisplayAlert("Error!", "Incorrect Username or Password", "OK");
                 }
             }
         }

@@ -92,15 +92,19 @@ namespace FinalProject_IOS.Models
             return true;
         }
 
-        public async Task<List<User>> GetAllUsersPending()
+        public async Task<List<User>> GetAllUsers()
         {
             return (await firebaseClient.Child("Users").OnceAsync<User>()).Select(item => new User
             {
                 accountId = item.Object.accountId,
+                courseId = item.Object.courseId,
                 firstName = item.Object.firstName,
                 lastName = item.Object.lastName,
-                courseId = item.Object.courseId,
-                role = item.Object.role
+                role = item.Object.role,
+                userName = item.Object.userName,
+                password = item.Object.password,
+                userStatus = item.Object.userStatus
+
 
             }).ToList();
         }

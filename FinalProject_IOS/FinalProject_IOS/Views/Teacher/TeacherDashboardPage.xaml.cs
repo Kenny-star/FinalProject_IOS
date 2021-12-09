@@ -29,7 +29,7 @@ namespace FinalProject_IOS.Views.Teacher
 
         private void ManageRegistrations_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new TuteeListPage());
         }
 
         private void Logout_Clicked(object sender, EventArgs e)
