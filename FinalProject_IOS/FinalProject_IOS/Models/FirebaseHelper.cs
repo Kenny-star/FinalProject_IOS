@@ -11,7 +11,7 @@ namespace FinalProject_IOS.Models
 {
     public class FirebaseHelper
     {
-        FirebaseClient firebaseClient = new FirebaseClient("https://ios-final-project-ed51f-default-rtdb.firebaseio.com/");
+        FirebaseClient firebaseClient = new FirebaseClient("https://student-ceef8-default-rtdb.firebaseio.com/");
 
         // Add new course to Firebase database
         public async Task addCourse(string courseId, string name, string teacherName) {
@@ -104,6 +104,7 @@ namespace FinalProject_IOS.Models
 
             }).ToList();
         }
+
 
         public FirebaseHelper()
         {
