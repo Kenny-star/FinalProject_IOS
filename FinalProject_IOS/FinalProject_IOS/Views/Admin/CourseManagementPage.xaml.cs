@@ -29,7 +29,7 @@ namespace FinalProject_IOS.Views.Admin
 
         private async void DeleteCourse_Tapped(object sender, EventArgs e)
         {
-            var response = await DisplayAlert("Deny Access", "Do you want to remove this course from the course list?", "Yes", "No");
+            var response = await DisplayAlert("Confirm Deletion", "Do you want to remove this course from the course list?", "Yes", "No");
             string sID = ((TappedEventArgs)e).Parameter.ToString();
             if (response)
             {
@@ -50,8 +50,8 @@ namespace FinalProject_IOS.Views.Admin
 
         private async void EditCourse_Tapped(object sender, EventArgs e)
         {
-            string sID = ((TappedEventArgs)e).Parameter.ToString();
-            var course = await f.GetCourseByID(sID);
+            string courseId = ((TappedEventArgs)e).Parameter.ToString();
+            var course = await f.GetCourseByID(courseId);
             
             if (course == null)
             {
@@ -59,7 +59,7 @@ namespace FinalProject_IOS.Views.Admin
             }
             else
             {
-                course.courseId = sID;
+                course.courseId = courseId;
                 await Navigation.PushModalAsync(new CourseEditPage(course));
                 OnAppearing();
             }

@@ -47,11 +47,10 @@ namespace FinalProject_IOS.Views.Admin
             course.teacherName = teacherNAme.Text;
 
 
-
             bool isUpdated = await f.EditCourse(course);
             if (isUpdated)
             {
-                await DisplayAlert("Success", "Saved", "Cancel");
+                await DisplayAlert("Success", "Course information updated.", "OK");
                 await Navigation.PopModalAsync();
             }
             else

@@ -11,7 +11,8 @@ namespace FinalProject_IOS.Models
 {
     public class FirebaseHelper
     {
-        FirebaseClient firebaseClient = new FirebaseClient("https://student-ceef8-default-rtdb.firebaseio.com/");
+        // FirebaseClient firebaseClient = new FirebaseClient("https://student-ceef8-default-rtdb.firebaseio.com/");
+        FirebaseClient firebaseClient = new FirebaseClient("https://ios-final-project-ed51f-default-rtdb.firebaseio.com/");
 
         // Add new course to Firebase database
         public async Task addCourse(string courseId, string name, string teacherName) {
@@ -30,29 +31,34 @@ namespace FinalProject_IOS.Models
               }).ToList();
         }
 
-        //problem with the firebase connection for the COurses table, should take a look on path creation. 
-        public async Task<bool> DeleteCourse(string sID)
+
+        public async Task<bool> DeleteCourse(string courseId)
         {
-            await firebaseClient.Child(nameof(Course)
-                + "/" + sID).DeleteAsync();
+            var toDeleteCourse = (await firebaseClient.Child("Courses").OnceAsync<Course>()).FirstOrDefault(a => a.Object.courseId == courseId);
+
+            await firebaseClient.Child("Courses").Child(toDeleteCourse.Key).DeleteAsync();
+
             return true;
         }
+
+
 
         public async Task<bool> EditCourse(Course course)
         {
+            var toUpdateCourse = (await firebaseClient.Child("Courses").OnceAsync<Course>()).Where(a => a.Object.courseId == course.courseId).FirstOrDefault();
 
-            await firebaseClient.Child(nameof(Course)
-                + "/" + course.courseId).
-                PutAsync(JsonConvert.SerializeObject(course));
+            await firebaseClient.Child("Courses").Child(toUpdateCourse.Key).PutAsync(new Course() { courseId = course.courseId, courseName = course.courseName, teacherName = course.teacherName });
+
             return true;
         }
 
-        //problem with the firebase connection for the COurses table, should take a look on path creation. 
-         public async Task<Course> GetCourseByID(string sID)
+        public async Task<Course> GetCourseByID(string courseId)
         {
-            return await firebaseClient.Child(nameof(Course)
-                    + "/" + sID).OnceSingleAsync<Course>();
+            var allCourses = await GetAllCourses();
+            await firebaseClient.Child("Persons").OnceAsync<Course>();
+            return allCourses.Where(a => a.courseId == courseId).FirstOrDefault();
         }
+
 
         public async Task AddUserToPendingList(string accountId, string courseId, string username, string password, string firstname, string lastname, string email, string role, string status)
         {
