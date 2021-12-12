@@ -1,5 +1,7 @@
-﻿using System;
+﻿using FinalProject_IOS.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +14,32 @@ namespace FinalProject_IOS.Views.Admin
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TutorAssignmentMenuPage : ContentPage
     {
-        public TutorAssignmentMenuPage()
+        Tutoring tutor = new Tutoring();
+        FirebaseHelper f = new FirebaseHelper();
+
+        public TutorAssignmentMenuPage(Tutoring t)
         {
             InitializeComponent();
+
+            tutor.tutorId = t.tutorId;
+            tutor.firstName = t.firstName;
+            tutor.lasttName = t.lasttName;
+            tutor.date = t.date;
+            tutor.startTime = t.startTime;
+            tutor.lasttName = t.lasttName;
+        }
+        public TutorAssignmentMenuPage()
+        { }
+
+        protected override void OnAppearing()
+        {
+            ObservableCollection<Tutoring> target = new ObservableCollection<Tutoring>();
+
+            tutorListView.ItemsSource = null;
+            tutorListView.ItemsSource = target;
+
+            target.Add(new Tutoring{tutorId = tutor.tutorId, firstName = tutor.firstName, lasttName = tutor.lasttName});
+
         }
 
         private void GoBack_Clicked(object sender, EventArgs e)
@@ -27,9 +52,5 @@ namespace FinalProject_IOS.Views.Admin
             //Insert to db
         }
 
-        private void ViewTutoringHours_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new TutoringSessionsPage());
-        }
     }
 }

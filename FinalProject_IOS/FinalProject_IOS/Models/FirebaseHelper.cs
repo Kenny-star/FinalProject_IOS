@@ -15,20 +15,22 @@ namespace FinalProject_IOS.Models
         FirebaseClient firebaseClient = new FirebaseClient("https://ios-final-project-ed51f-default-rtdb.firebaseio.com/");
 
         // Add new course to Firebase database
-        public async Task addCourse(string courseId, string name, string teacherName) {
+        public async Task<bool> addCourse(string courseId, string name, string teacherName) {
 
             await firebaseClient.Child("Courses").PostAsync(new Course() { courseId = courseId, courseName = name, teacherName = teacherName });
+
+            return true;
         }
 
         // Get a list of all the courses from the database
         public async Task<List<Course>> GetAllCourses()
         {
             return (await firebaseClient.Child("Courses").OnceAsync<Course>()).Select(item => new Course
-              {
-                  courseId = item.Object.courseId,
-                  courseName = item.Object.courseName,
-                  teacherName = item.Object.teacherName,
-              }).ToList();
+            {
+                courseId = item.Object.courseId,
+                courseName = item.Object.courseName,
+                teacherName = item.Object.teacherName,
+            }).ToList();
         }
 
 
@@ -63,7 +65,7 @@ namespace FinalProject_IOS.Models
         public async Task AddUserToPendingList(string accountId, string courseId, string username, string password, string firstname, string lastname, string email, string role, string status)
         {
 
-            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = password, firstName = firstname, lastName = lastname, email = email, role = role, userStatus = status});
+            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = password, firstName = firstname, lastName = lastname, email = email, role = role, userStatus = status });
         }
 
         public async Task<User> GetByID(string sID)
@@ -107,17 +109,17 @@ namespace FinalProject_IOS.Models
               .Child("Users")
               .Child(toUpdatePerson.Key)
               .PutAsync(new User()
-                {
-                    accountId = toUpdatePerson.Object.accountId,
-                    courseId = toUpdatePerson.Object.courseId,
-                    email = toUpdatePerson.Object.email,
-                    firstName = toUpdatePerson.Object.firstName,
-                    lastName = toUpdatePerson.Object.lastName,
-                    password = toUpdatePerson.Object.password,
-                    role = toUpdatePerson.Object.role,
-                    userName = toUpdatePerson.Object.userName,
-                    userStatus = "Denied"
-                });
+              {
+                  accountId = toUpdatePerson.Object.accountId,
+                  courseId = toUpdatePerson.Object.courseId,
+                  email = toUpdatePerson.Object.email,
+                  firstName = toUpdatePerson.Object.firstName,
+                  lastName = toUpdatePerson.Object.lastName,
+                  password = toUpdatePerson.Object.password,
+                  role = toUpdatePerson.Object.role,
+                  userName = toUpdatePerson.Object.userName,
+                  userStatus = "Denied"
+              });
 
             return true;
         }
@@ -139,7 +141,83 @@ namespace FinalProject_IOS.Models
             }).ToList();
         }
 
+        public async Task<bool> AddAvailability(string accountId, string firstName1, string lastName, string availability, string start, string end)
+        {
+            /*
+            var toUpdatePerson = (await firebaseClient
+            .Child("Users")
+            .OnceAsync<User>()).Where(a => a.Object.role == "Tutor" && a.Object.accountId == accountId).FirstOrDefault();
 
+            if (toUpdatePerson == null)
+            {
+                return false;
+            }
+            else
+            {
+
+                await firebaseClient.Child("Users").Child("Tutoring").Child(toUpdatePerson.Key).PostAsync(new Tutoring()
+                {
+                    firstName = firstName,
+                    lasttName = lastName,
+                    date = availability,
+                    startTime = start,
+                    endTime = end,
+
+                });
+
+                return true;
+            }
+            */
+
+            await firebaseClient.Child("Users").Child("Tutoring").PostAsync(new Tutoring()
+            {
+                firstName = firstName1,
+                lasttName = lastName,
+                tutorId = accountId,
+                date = availability,
+                startTime = start,
+                endTime = end
+
+            });
+
+            return true;
+        }
+
+        public async Task<List<Tutoring>> GetAllTutoringOffers()
+        {
+            return (await firebaseClient.Child("Users").Child("Tutoring").OnceAsync<Tutoring>()).Select(item => new Tutoring
+            {
+                tutorId = item.Object.tutorId,
+                firstName = item.Object.firstName,
+                lasttName = item.Object.lasttName,
+                date = item.Object.date,
+                startTime = item.Object.startTime,
+                endTime = item.Object.endTime,
+
+
+            }).ToList();
+        }
+
+        public async Task<Tutoring> GetTutorByID(string SId)
+        {
+            var allTutors = await GetAllTutoringOffers();
+            await firebaseClient.Child("User").Child("Tutoring").OnceAsync<Tutoring>();
+            return allTutors.Where(a => a.tutorId == SId).FirstOrDefault();
+        }
+
+        public async Task<List<Tutoring>> GetByTutorId(string sId)
+        {
+            return (await firebaseClient.Child("User").Child("Tutoring").OnceAsync<Tutoring>()).Where(s => s.Object.tutorId == sId).Select(item => new Tutoring
+            {
+                tutorId = item.Object.tutorId,
+                firstName = item.Object.firstName,
+                lasttName = item.Object.lasttName,
+                date = item.Object.date,
+                startTime = item.Object.startTime,
+                endTime = item.Object.endTime
+
+            }).ToList();
+        }
         public FirebaseHelper()
         {
         }

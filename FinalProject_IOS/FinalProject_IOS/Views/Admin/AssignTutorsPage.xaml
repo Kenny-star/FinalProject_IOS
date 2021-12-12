@@ -31,11 +31,60 @@
                 <Label Text="Tutors:" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="2" FontSize="20" 
                          VerticalTextAlignment="Center" TextColor="Black" Margin="20,0,0,0"/>
 
-                <ImageButton Source="see.jpg" Grid.Row="3" Grid.Column="3" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
-                             Clicked="ViewTutor_Clicked"/>
-                <ImageButton Source="assign.png" Grid.Row="3" Grid.Column="4" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
-                             Clicked="AssignTutor_Clicked"/>
             </Grid>
+            <ListView x:Name="tutorsListView"
+                      ItemsSource="{Binding tutoringAvailabilities}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Margin="10,0,0,0"
+                                    Text="{Binding firstName}" FontSize="Medium"/>
+                                <Label Grid.Row="0" Grid.Column="1"
+                                    Text="{Binding date}" FontSize="Medium"/>
+                                <Label Grid.Row="1" Grid.Column="0"
+                                    Text="{Binding startTime}" FontSize="Medium"/>
+                                <Label Grid.Row="1" Grid.Column="1"
+                                    Text="{Binding endTime}" FontSize="Medium"/>
+                                <Image Source="see.jpg"
+                                       Grid.Row="0" Grid.Column="3"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="ViewTutorTap"
+                                            Tapped="ViewTutor_Clicked"
+                                            CommandParameter="{Binding tutorId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Image Source="assign.png"
+                                       Grid.Row="0" Grid.Column="4"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="AssignTutorTap"
+                                            Tapped="AssignTutor_Clicked"
+                                            CommandParameter="{Binding tutorId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
         </StackLayout>
     </ScrollView>
 </ContentPage>

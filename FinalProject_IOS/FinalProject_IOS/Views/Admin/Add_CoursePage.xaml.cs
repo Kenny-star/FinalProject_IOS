@@ -29,7 +29,17 @@ namespace FinalProject_IOS.Views.Admin
             string courseName = CourseName.Text;
             string teacherName = TeacherName.Text;
 
-            await fbHelper.addCourse(courseId, courseName, teacherName);
+            bool response = await fbHelper.addCourse(courseId, courseName, teacherName);
+
+            if (response)
+            {
+                await DisplayAlert("Notice", "A course has been successfully added!", "OK");
+            }
+
+            else
+            {
+                await DisplayAlert("Error", "An error occured while inserting!", "OK");
+            }
         }
 
         private void BackButton_Clicked(object sender, EventArgs e)

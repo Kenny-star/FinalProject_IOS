@@ -1,6 +1,7 @@
 ﻿using FinalProject_IOS.Views;
 using FinalProject_IOS.Views.Admin;
 using FinalProject_IOS.Views.Teacher;
+using FinalProject_IOS.Views.Tutor;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,7 +14,7 @@ namespace FinalProject_IOS
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new CourseManagementPage());
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

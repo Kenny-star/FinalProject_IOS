@@ -49,7 +49,7 @@ namespace FinalProject_IOS.Views
                         if (user.role == "Tutor" && user.userStatus == "Accepted")
                         {
                             notFound = false;
-                            await Navigation.PushAsync(new TutorDashboardPage());
+                            await Navigation.PushAsync(new TutorDashboardPage(user));
                             break;
                         }
 
