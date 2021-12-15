@@ -18,8 +18,6 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -27,31 +25,27 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
         </Grid>
+
         <Image Source="Tutoring_Logo.gif" Grid.Row="0" Grid.ColumnSpan="3"/>
 
-        <Label Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+        <Label Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
 
-        <Button x:Name="ManageCourses" Text="Manage Courses" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="3" 
+        <Button x:Name="ManageCourses" Text="Manage Courses" BackgroundColor="#1f195a" TextColor="White" Grid.Column="1" Grid.Row="1" 
                 Margin="15, 0, 15, 0" Clicked="ManageCourses_Clicked"/>
 
-        <Label Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
-
-        <Button x:Name="MangageRegistrations" Text="Manage Registrations" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="6"
+        <Button x:Name="MangageRegistrations" Text="Manage Registrations" BackgroundColor="#1f195a" TextColor="White" Grid.Column="1" Grid.Row="4"
                 Margin="15, 0, 15, 0" Clicked="ManageRegistrations_Clicked"/>
 
-        <Label Grid.Row="7" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
-
-        <Button x:Name="AssignTutors" Text="Assign Tutors" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="9"
+        <Button x:Name="AssignTutors" Text="Assign Tutors" BackgroundColor="#1f195a" TextColor="White" Grid.Column="1" Grid.Row="6"
                 Margin="15, 0, 15, 0" Clicked="AssignTutors_Clicked"/>
 
-        <Button x:Name="ManageTeachers" Text="Manage Teachers" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="9"
+        <Button x:Name="ManageTeachers" Text="Manage Teachers" BackgroundColor="#1f195a" TextColor="White" Grid.Column="1" Grid.Row="7"
                 Margin="15, 0, 15, 0" Clicked="ManageTeachers_Clicked"/>
 
-        <Label Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+        <Label Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="8"/>
 
-        <Button x:Name="Logout" Text="Logout" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="11"
+        <Button x:Name="Logout" Text="Logout" BackgroundColor="#da1820" TextColor="White" Grid.Column="1" Grid.Row="9"
                 Margin="15, 0, 15, 0" Clicked="Logout_Clicked"/>
-
 
     </StackLayout>
 </ContentPage>
