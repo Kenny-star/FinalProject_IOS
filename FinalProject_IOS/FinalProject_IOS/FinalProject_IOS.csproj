@@ -18,6 +18,8 @@
 
   <ItemGroup>
     <Folder Include="Views\Student\" />
+    <Folder Include="Views\Admin\Teachers\" />
+    <Folder Include="Views\Admin\Courses\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,22 +38,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\Admin\CourseEditPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\Tutor\AddSession.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Admin\Add_CoursePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Admin\AdminDashboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Admin\AssignTutorsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Admin\CourseManagementPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\GradeSession.xaml">
@@ -105,5 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="FirebaseDatabase.net" />
+    <None Remove="Views\Admin\Teacher\" />
+    <None Remove="Views\Admin\Courses\" />
   </ItemGroup>
 </Project>

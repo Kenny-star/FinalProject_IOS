@@ -218,6 +218,52 @@ namespace FinalProject_IOS.Models
 
             }).ToList();
         }
+
+        // CRUD For teachers
+
+        public async Task<bool> DeleteTeacher(string accountId)
+        {
+            var toDeleteTeacher = (await firebaseClient.Child("Users").OnceAsync<User>()).FirstOrDefault(a => a.Object.accountId == accountId);
+
+            await firebaseClient.Child("Users").Child(toDeleteTeacher.Key).DeleteAsync();
+
+            return true;
+        }
+
+
+        // Add new teacher to Firebase DB
+        public async Task<bool> AddTeacher(string accountId, string courseId, string username, string password, string firstname, string lastname, string email)
+        {
+
+            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = password, firstName = firstname, lastName = lastname, email = email, role = "Teacher", userStatus = "Accepted" });
+            return true;
+        }
+
+
+
+        // Get teacher from its accountId
+
+        public async Task<User> GetTeacherById(string accountId)
+        {
+            var allUsers = await GetAllUsers();
+            await firebaseClient.Child("Users").OnceAsync<User>();
+            return allUsers.Where(a => a.accountId == accountId).FirstOrDefault();
+        }
+
+        // Update teacher account
+
+        public async Task<bool> EditTeacher(User teacher)
+        {
+            var toUpdateTeacher = (await firebaseClient.Child("Users").OnceAsync<User>()).Where(a => a.Object.accountId == teacher.accountId).FirstOrDefault();
+
+            await firebaseClient.Child("Users").Child(toUpdateTeacher.Key).PutAsync(new User() { accountId = teacher.accountId, firstName = teacher.firstName, lastName = teacher.lastName, email = teacher.email, userName = teacher.userName , password = teacher.password, courseId = teacher.courseId  });
+
+            return true;
+        }
+
+
+
+
         public FirebaseHelper()
         {
         }
