@@ -108,5 +108,10 @@ namespace FinalProject_IOS.Views
                 }
             }
         }
+
+        private async void BackToLogin_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
+        }
     }
 }                                              

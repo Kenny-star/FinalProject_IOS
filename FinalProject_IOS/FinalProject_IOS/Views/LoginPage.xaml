@@ -26,12 +26,12 @@
             <Label Text="Login" TextColor="Black" Grid.Row="1" Grid.Column="0" FontSize="32" Margin="10,0,0,0"/>
 
 
-            <Entry x:Name="username" Placeholder="Enter username" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10,0,0,0" />
+            <Entry x:Name="username" Placeholder="Enter username" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10,0,10,0" />
             <Entry x:Name="password" Placeholder="Enter password" Grid.Column="0" Grid.Row="3" IsPassword="True" Grid.ColumnSpan="3" Margin="10,0,10,0"/>
 
-            <Button x:Name="Login" Text="Login" BackgroundColor="#4682b4" TextColor="White" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3"  Margin="10, 0, 15, 10" Clicked ="Login_Clicked"/>
-            <Button x:Name="Register" Text="Register" BackgroundColor="#4682b4" TextColor="White" Grid.Column="0" Grid.Row="5"  Grid.ColumnSpan="3" Margin="10, 0, 15, 10" Clicked ="Register_Clicked"/>
-            
+            <Button x:Name="Login" Text="Login" BackgroundColor="#4682b4" TextColor="White" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3"  Margin="10, 0, 10, 0" Clicked ="Login_Clicked"/>
+            <Button x:Name="Register" Text="Don't have an account? Register now" TextColor="Black" BackgroundColor="White" FontSize="14" Grid.Column="0" Grid.Row="5"  Grid.ColumnSpan="3" Margin="10, 0, 10, 0" Clicked ="Register_Clicked"/>
+       
         </Grid>
     </StackLayout>
 
