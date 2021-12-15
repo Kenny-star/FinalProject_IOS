@@ -36,5 +36,10 @@ namespace FinalProject_IOS.Views.Admin
         {
             Application.Current.MainPage = new NavigationPage(new LoginPage());
         }
+
+        void ManageTeachers_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new TeacherManagementPage());
+        }
     }
 }
