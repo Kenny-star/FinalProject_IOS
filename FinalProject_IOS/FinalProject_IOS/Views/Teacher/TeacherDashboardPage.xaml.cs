@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using FinalProject_IOS.Views.Admin;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -30,6 +30,11 @@ namespace FinalProject_IOS.Views.Teacher
         private void ManageRegistrations_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new TuteeListPage());
+        }
+
+        private void ManageStudents_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new StudentManagementPage());
         }
 
         private void Logout_Clicked(object sender, EventArgs e)

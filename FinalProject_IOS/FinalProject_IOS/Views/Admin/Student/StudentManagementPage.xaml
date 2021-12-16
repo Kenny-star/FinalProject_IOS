@@ -23,8 +23,6 @@
                 <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <ImageButton Source="back.png" Grid.Row="0" Grid.Column="0" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
-                             Clicked="GoBack_Clicked"/>
                 <ImageButton Source="add.png" Grid.Row="1" Grid.Column="4" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF"
                              Clicked="AddStudent_Clicked"/>
                 <Label Text="Manage Students" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1" FontSize="28" 

@@ -40,6 +40,9 @@
         <Button x:Name="MonitorStudents" Text="Monitor Students" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="9"
                 Margin="15, 0, 15, 0" Clicked="MonitorStudents_Clicked"/>
 
+        <Button x:Name="manageStudents" Text="Manage Students" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="6"
+                Margin="15, 0, 15, 0" Clicked="ManageStudents_Clicked"/>
+
         <Button x:Name="Logout" Text="Logout" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="9"
                 Margin="15, 0, 15, 0" Clicked="Logout_Clicked"/>
 
