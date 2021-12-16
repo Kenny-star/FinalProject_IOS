@@ -74,7 +74,7 @@ namespace FinalProject_IOS.Views
 
 
                 string accountId = Guid.NewGuid().ToString("N");
-                string userName = username.Text;
+                string userName = username.Text.ToLower();
                 string pwd = password.Text;
                 string firstName = firstname.Text;
                 string lastName = lastname.Text;
