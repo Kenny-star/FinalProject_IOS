@@ -29,6 +29,8 @@ namespace FinalProject_IOS.Views
 
             FirebaseHelper f = new FirebaseHelper();
 
+            AuthHelper auth = new AuthHelper();
+
             List<User> Users = await f.GetAllUsers();
 
 
@@ -43,7 +45,7 @@ namespace FinalProject_IOS.Views
                 foreach (User user in Users)
                 {
 
-                    if ((username.Text.ToLower()) == (user.userName.ToLower()) && password.Text == user.password)
+                    if ((username.Text.ToLower()) == (user.userName.ToLower()) && (auth.hashPassword(password.Text)) == user.password)
                     {
 
                         if (user.role == "Tutor" && user.userStatus == "Accepted")

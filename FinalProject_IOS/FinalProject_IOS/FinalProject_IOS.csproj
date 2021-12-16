@@ -21,6 +21,7 @@
     <Folder Include="Views\Admin\Teachers\" />
     <Folder Include="Views\Admin\Courses\" />
     <Folder Include="Views\Admin\Tutor\" />
+    <Folder Include="Views\Admin\Student\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -102,5 +103,7 @@
     <None Remove="Views\Admin\Teacher\" />
     <None Remove="Views\Admin\Courses\" />
     <None Remove="Views\Admin\r\" />
+    <None Remove="Views\Admin\Tutor\Tutor\" />
+    <None Remove="Views\Admin\Student\" />
   </ItemGroup>
 </Project>
