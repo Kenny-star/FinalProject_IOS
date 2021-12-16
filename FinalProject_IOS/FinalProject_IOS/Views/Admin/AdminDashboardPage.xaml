@@ -5,9 +5,11 @@
              BackgroundColor="White">
     
     
-    <StackLayout>
+    <ScrollView>
+        <StackLayout>
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -46,10 +48,15 @@
         <Button x:Name="ManageTutors" Text="Manage Tutors" BackgroundColor="#1f195a" TextColor="White" Grid.Column="1" Grid.Row="8"
                 Margin="15, 0, 15, 0" Clicked="ManageTutors_Clicked"/>
 
-        <Label Grid.Row="9" Grid.RowSpan="2" Grid.ColumnSpan="8"/>
+        <Button x:Name="ManageStudents" Text="Manage Students" BackgroundColor="#1f195a" TextColor="White" Grid.Column="1" Grid.Row="9"
+                Margin="15, 0, 15, 0" Clicked="ManageStudents_Clicked"/>
 
-        <Button x:Name="Logout" Text="Logout" BackgroundColor="#da1820" TextColor="White" Grid.Column="1" Grid.Row="10"
+
+        <Label Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="8"/>
+
+        <Button x:Name="Logout" Text="Logout" BackgroundColor="#da1820" TextColor="White" Grid.Column="1" Grid.Row="11"
                 Margin="15, 0, 15, 0" Clicked="Logout_Clicked"/>
 
     </StackLayout>
+</ScrollView>
 </ContentPage>

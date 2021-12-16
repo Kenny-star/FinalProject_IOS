@@ -343,7 +343,7 @@ namespace FinalProject_IOS.Models
         {
             string hash = auth.hashPassword(password);
 
-            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = hash, firstName = firstname, lastName = lastname, email = email, role = "Student", userStatus = "Accepted" });
+            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = hash, firstName = firstname, lastName = lastname, email = email, role = "Tutee", userStatus = "Accepted" });
             return true;
         }
 
