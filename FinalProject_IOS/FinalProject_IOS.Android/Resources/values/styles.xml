@@ -18,7 +18,7 @@
   
   <style name="MainTheme.Splash" parent ="Theme.AppCompat.Light.NoActionBar">    
     <item name="android:windowBackground">
-        @drawable/Tutoring_Logo
+        @drawable/splash
     </item>    
     <item name="android:windowNoTitle">true</item>      
     <item name="android:windowFullscreen">true</item>      

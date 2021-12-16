@@ -1,4 +1,4 @@
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
@@ -10,12 +10,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-namespace TutorApp.Droid
 
+namespace FinalProject_IOS.Droid
 {
-    [Activity(Label = "TutorApp", Icon = "@mipmap/icon", NoHistory = true, Theme = "@style/MainTheme.Splash", MainLauncher = true,
-    ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout |
-    ConfigChanges.SmallestScreenSize)]
+
+    [Activity(Label = "FinalProject_IOS", Icon = "@mipmap/icon", NoHistory =true,
+        Theme = "@style/MainTheme.Splash", MainLauncher = true, 
+        ConfigurationChanges = ConfigChanges.ScreenSize | 
+                               ConfigChanges.Orientation | ConfigChanges.UiMode |
+                               ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
+
+
     class SplashAct : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

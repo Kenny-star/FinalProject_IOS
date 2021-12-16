@@ -1,9 +1,14 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<layer-list xmlns:android=
+"http://schemas.android.com/apk/res/android" >
   <item>
     <color android:color="@android:color/background_light"/>
   </item>
   <item>
-    <bitmap android:src="@drawable/launchscreen" android:tileMode="disabled" android:gravity="center"/>
+    <bitmap
+    android:src="@drawable/Tutoring_Logo"
+    android:tileMode="disabled"
+    android:gravity="center"
+/>
   </item>
 </layer-list>
