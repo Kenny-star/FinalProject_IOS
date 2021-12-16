@@ -41,5 +41,10 @@ namespace FinalProject_IOS.Views.Admin
         {
             Navigation.PushAsync(new TeacherManagementPage());
         }
+
+        void ManageTutors_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new TutorManagementPage());
+        }
     }
 }

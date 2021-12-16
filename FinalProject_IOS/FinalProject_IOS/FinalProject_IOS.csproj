@@ -20,6 +20,7 @@
     <Folder Include="Views\Student\" />
     <Folder Include="Views\Admin\Teachers\" />
     <Folder Include="Views\Admin\Courses\" />
+    <Folder Include="Views\Admin\Tutor\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -100,5 +101,6 @@
     <None Remove="FirebaseDatabase.net" />
     <None Remove="Views\Admin\Teacher\" />
     <None Remove="Views\Admin\Courses\" />
+    <None Remove="Views\Admin\r\" />
   </ItemGroup>
 </Project>

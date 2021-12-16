@@ -34,6 +34,7 @@ namespace FinalProject_IOS.Views.Admin
             if (response)
             {
                 await DisplayAlert("Notice", "A course has been successfully added!", "OK");
+                Navigation.PushAsync(new CourseManagementPage());
             }
 
             else
