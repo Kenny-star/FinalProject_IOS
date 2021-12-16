@@ -14,6 +14,9 @@ namespace FinalProject_IOS.Models
         // FirebaseClient firebaseClient = new FirebaseClient("https://student-ceef8-default-rtdb.firebaseio.com/");
         FirebaseClient firebaseClient = new FirebaseClient("https://ios-final-project-ed51f-default-rtdb.firebaseio.com/");
 
+        // Instantiate Auth helper to encrypt passwords
+        AuthHelper auth = new AuthHelper();
+
         // Add new course to Firebase database
         public async Task<bool> addCourse(string courseId, string name, string teacherName) {
 
@@ -64,8 +67,9 @@ namespace FinalProject_IOS.Models
 
         public async Task AddUserToPendingList(string accountId, string courseId, string username, string password, string firstname, string lastname, string email, string role, string status)
         {
+            string hash = auth.hashPassword(password);
 
-            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = password, firstName = firstname, lastName = lastname, email = email, role = role, userStatus = status });
+            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = hash, firstName = firstname, lastName = lastname, email = email, role = role, userStatus = status });
         }
 
         public async Task<User> GetByID(string sID)
@@ -239,8 +243,9 @@ namespace FinalProject_IOS.Models
         // Add new teacher to Firebase DB
         public async Task<bool> AddTeacher(string accountId, string courseId, string username, string password, string firstname, string lastname, string email)
         {
+            string hash = auth.hashPassword(password);
 
-            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = password, firstName = firstname, lastName = lastname, email = email, role = "Teacher", userStatus = "Accepted" });
+            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = hash, firstName = firstname, lastName = lastname, email = email, role = "Teacher", userStatus = "Accepted" });
             return true;
         }
 
@@ -259,9 +264,11 @@ namespace FinalProject_IOS.Models
 
         public async Task<bool> EditTeacher(User teacher)
         {
+            string hash = auth.hashPassword(teacher.password);
+
             var toUpdateTeacher = (await firebaseClient.Child("Users").OnceAsync<User>()).Where(a => a.Object.accountId == teacher.accountId).FirstOrDefault();
 
-            await firebaseClient.Child("Users").Child(toUpdateTeacher.Key).PutAsync(new User() { accountId = teacher.accountId, firstName = teacher.firstName, lastName = teacher.lastName, email = teacher.email, userName = teacher.userName, password = teacher.password, courseId = teacher.courseId  });
+            await firebaseClient.Child("Users").Child(toUpdateTeacher.Key).PutAsync(new User() { accountId = teacher.accountId, firstName = teacher.firstName, lastName = teacher.lastName, email = teacher.email, userName = teacher.userName, password = hash, courseId = teacher.courseId  });
 
             return true;
         }
@@ -285,8 +292,9 @@ namespace FinalProject_IOS.Models
         // Add new tutor to Firebase DB
         public async Task<bool> AddTutor(string accountId, string courseId, string username, string password, string firstname, string lastname, string email)
         {
+            string hash = auth.hashPassword(password);
 
-            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = password, firstName = firstname, lastName = lastname, email = email, role = "Tutor", userStatus = "Accepted" });
+            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = hash, firstName = firstname, lastName = lastname, email = email, role = "Tutor", userStatus = "Accepted" });
             return true;
         }
 
@@ -302,10 +310,62 @@ namespace FinalProject_IOS.Models
         // Update tutor account
 
         public async Task<bool> EditTutor(User tutor)
+
         {
+            string hash = auth.hashPassword(tutor.password);
+
             var toUpdateTutor = (await firebaseClient.Child("Users").OnceAsync<User>()).Where(a => a.Object.accountId == tutor.accountId).FirstOrDefault();
 
-            await firebaseClient.Child("Users").Child(toUpdateTutor.Key).PutAsync(new User() { accountId = tutor.accountId, firstName = tutor.firstName, lastName = tutor.lastName, email = tutor.email, userName = tutor.userName, password = tutor.password, courseId = tutor.courseId });
+            await firebaseClient.Child("Users").Child(toUpdateTutor.Key).PutAsync(new User() { accountId = tutor.accountId, firstName = tutor.firstName, lastName = tutor.lastName, email = tutor.email, userName = tutor.userName, password = hash, courseId = tutor.courseId });
+
+            return true;
+        }
+
+
+        //  ------------------------------------------                       ------------------------------------------
+        //  ------------------------------------------   CRUD FOR STUDENTS   ------------------------------------------
+        //  ------------------------------------------                       ------------------------------------------
+
+
+        // Delete student by its account ID
+        public async Task<bool> DeleteStudent(string accountId)
+        {
+            var toDeleteStudent = (await firebaseClient.Child("Users").OnceAsync<User>()).FirstOrDefault(a => a.Object.accountId == accountId);
+
+            await firebaseClient.Child("Users").Child(toDeleteStudent.Key).DeleteAsync();
+
+            return true;
+        }
+
+
+        // Add new student to Firebase DB
+        public async Task<bool> AddStudent(string accountId, string courseId, string username, string password, string firstname, string lastname, string email)
+        {
+            string hash = auth.hashPassword(password);
+
+            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = hash, firstName = firstname, lastName = lastname, email = email, role = "Student", userStatus = "Accepted" });
+            return true;
+        }
+
+        // Get student from its accountId
+
+        public async Task<User> GetStudentById(string accountId)
+        {
+            var allUsers = await GetAllUsers();
+            await firebaseClient.Child("Users").OnceAsync<User>();
+            return allUsers.Where(a => a.accountId == accountId).FirstOrDefault();
+        }
+
+        // Update student account
+
+        public async Task<bool> EditStudent(User student)
+
+        {
+            string hash = auth.hashPassword(student.password);
+
+            var toUpdateStudent = (await firebaseClient.Child("Users").OnceAsync<User>()).Where(a => a.Object.accountId == student.accountId).FirstOrDefault();
+
+            await firebaseClient.Child("Users").Child(toUpdateStudent.Key).PutAsync(new User() { accountId = student.accountId, firstName = student.firstName, lastName = student.lastName, email = student.email, userName = student.userName, password = hash, courseId = student.courseId });
 
             return true;
         }
