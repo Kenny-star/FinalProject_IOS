@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.Admin.TutorManagementPage"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+             </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <ImageButton Source="back.png" Grid.Row="0" Grid.Column="0" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
+                             Clicked="GoBack_Clicked"/>
+                <ImageButton Source="add.png" Grid.Row="1" Grid.Column="4" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF"
+                             Clicked="AddTutor_Clicked"/>
+                <Label Text="Manage Teachers" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1" FontSize="28" 
+                         VerticalTextAlignment="Center" TextColor="Black" Margin="20,0,0,0"/>
+            </Grid>
+
+            <ListView x:Name="tutorList"
+                      ItemsSource="{Binding allTutors}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Margin="10,0,0,0"
+                                    Text="{Binding firstName}" FontSize="Medium"/>
+                                <Label Grid.Row="0" Grid.Column="1"
+                                    Text="{Binding lastName}" FontSize="Medium"/>
+                                <Label Grid.Row="0" Grid.Column="2"
+                                    Text="{Binding courseId}" FontSize="Medium"/>
+
+                                <Image Source="add.png"
+                                       Grid.Row="0" Grid.Column="3"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="EditTeacherTap"
+                                            Tapped="EditTutor_Tapped"
+                                            CommandParameter="{Binding accountId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Image Source="back.png"
+                                       Grid.Row="0" Grid.Column="4"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="DeleteTutorTap"
+                                            Tapped="DeleteTutor_Tapped"
+                                            CommandParameter="{Binding accountId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

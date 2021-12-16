@@ -19,6 +19,9 @@
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
@@ -40,6 +43,8 @@
                 <RadioButton x:Name="Tutee" Grid.Column="0" Grid.Row="10" Content="Tutee" Margin="10,0,0,0"></RadioButton>
                 
                 <Button x:Name="Register" Text="Register" BackgroundColor="#4682b4" TextColor="White" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="11" Margin="10, 0, 15, 10" Clicked ="Register_Clicked"/>
+                <Button x:Name="Login" Text="Already have an account? Sign in" TextColor="Black" BackgroundColor="White" FontSize="14" Grid.Column="0" Grid.Row="12"  Grid.ColumnSpan="3" Margin="10, 0, 10, 0" Clicked ="BackToLogin_Clicked"/>
+
             </Grid>
         </StackLayout>
     </ScrollView>

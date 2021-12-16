@@ -24,7 +24,7 @@ namespace FinalProject_IOS.Views
         private async void Login_Clicked(object sender, EventArgs e)
         {
             bool notFound = true;
-            string adminUsername = "MyAdmin";
+            string adminUsername = "myadmin";
             string adminPassword = "MyStrongPassword!";
 
             FirebaseHelper f = new FirebaseHelper();
@@ -32,7 +32,7 @@ namespace FinalProject_IOS.Views
             List<User> Users = await f.GetAllUsers();
 
 
-            if (username.Text == adminUsername && password.Text == adminPassword)
+            if ((username.Text.ToLower()) == adminUsername && password.Text == adminPassword)
             {
                 await Navigation.PushAsync(new AdminDashboardPage());
 
@@ -43,7 +43,7 @@ namespace FinalProject_IOS.Views
                 foreach (User user in Users)
                 {
 
-                    if (username.Text == user.userName && password.Text == user.password)
+                    if ((username.Text.ToLower()) == (user.userName.ToLower()) && password.Text == user.password)
                     {
 
                         if (user.role == "Tutor" && user.userStatus == "Accepted")

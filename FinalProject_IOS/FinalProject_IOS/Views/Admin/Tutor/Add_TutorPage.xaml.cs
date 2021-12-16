@@ -10,19 +10,19 @@ using Xamarin.Forms.Xaml;
 namespace FinalProject_IOS.Views.Admin
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Add_TeacherPage : ContentPage
+    public partial class Add_TutorPage : ContentPage
     {
         // Initialize Firebase helper class
         FirebaseHelper fbHelper = new FirebaseHelper();
 
-        public Add_TeacherPage()
+        public Add_TutorPage()
         {
             InitializeComponent();
         }
 
 
         // Add course
-        private async void AddTeacher_Clicked(object sender, EventArgs e)
+        private async void AddTutor_Clicked(object sender, EventArgs e)
         {
             string accountId = Guid.NewGuid().ToString("N");
             string FirstName = firstName.Text;
@@ -33,23 +33,23 @@ namespace FinalProject_IOS.Views.Admin
             string courseId = courseid.Text;
 
 
-            bool success = await fbHelper.AddTeacher(accountId, courseId, uname, pwd, FirstName, LastName, emailAddress);
+            bool success = await fbHelper.AddTutor(accountId, courseId, uname, pwd, FirstName, LastName, emailAddress);
 
             if (success)
             {
-                await DisplayAlert("Notice", "Teacher has been successfully added!", "OK");
-                Navigation.PushAsync(new TeacherManagementPage());
+                await DisplayAlert("Notice", "Tutor has been successfully added!", "OK");
+                Navigation.PushAsync(new TutorManagementPage());
             }
 
             else
             {
-                await DisplayAlert("Error", "Failed to add new teacher!", "OK");
+                await DisplayAlert("Error", "Failed to add new tutor!", "OK");
             }
         }
 
         private void BackButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new TeacherManagementPage());
+            Navigation.PushAsync(new TutorManagementPage());
         }
     }
 }

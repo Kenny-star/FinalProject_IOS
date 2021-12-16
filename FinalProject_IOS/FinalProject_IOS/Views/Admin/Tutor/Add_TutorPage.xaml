@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.Admin.Add_TutorPage"
+             BackgroundColor="White">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ImageButton Source="back.png" Grid.Row="0" HorizontalOptions="Start" 
+                         HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF"
+                         Margin="15,0,0,0" Clicked="BackButton_Clicked"/>
+
+            <Label Text="Add a Tutor" TextColor="Black" Grid.Row="2"
+                   FontSize="38" HorizontalTextAlignment="Center"/>
+
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Row="3"
+                   Margin="50,5,50,5">
+                <Entry x:Name="firstName" Placeholder="First Name"/>
+            </Frame>
+
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Row="4"
+                   Margin="50,5,50,5">
+                <Entry x:Name="lastName" Placeholder="Last Name"/>
+            </Frame>
+
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Row="5"
+                   Margin="50,5,50,5">
+                <Entry x:Name="email" Placeholder="Email"/>
+            </Frame>
+
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Row="6"
+                   Margin="50,5,50,5">
+                <Entry x:Name="username" Placeholder="Username"/>
+            </Frame>
+
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Row="7"
+                   Margin="50,5,50,5">
+                <Entry x:Name="password" Placeholder="Password" IsPassword="True"/>
+            </Frame>
+
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Row="8"
+                   Margin="50,5,50,5">
+                <Entry x:Name="courseid" Placeholder="Course ID"/>
+            </Frame>
+
+            <Button x:Name="AddTutorClicked" Text="Add Tutor" 
+                    BackgroundColor="#5578C9" TextColor="White" Margin="50,10,50,10"
+                    Grid.Row="9"
+                    Clicked="AddTutor_Clicked"></Button>
+        </Grid>
+    </StackLayout>
+</ContentPage>

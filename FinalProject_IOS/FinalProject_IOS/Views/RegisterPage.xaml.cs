@@ -74,7 +74,7 @@ namespace FinalProject_IOS.Views
 
 
                 string accountId = Guid.NewGuid().ToString("N");
-                string userName = username.Text;
+                string userName = username.Text.ToLower();
                 string pwd = password.Text;
                 string firstName = firstname.Text;
                 string lastName = lastname.Text;
@@ -107,6 +107,11 @@ namespace FinalProject_IOS.Views
                     await Navigation.PushAsync(new LoginPage());
                 }
             }
+        }
+
+        private async void BackToLogin_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
         }
     }
 }                                              
