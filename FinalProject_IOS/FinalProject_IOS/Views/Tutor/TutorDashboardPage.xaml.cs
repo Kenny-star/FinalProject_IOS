@@ -36,6 +36,10 @@ namespace FinalProject_IOS.Views.Tutor
             Navigation.PushAsync(new AddSession(user1));
         }
 
+        private void ViewSession_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new TutoringPostings(user1));
+        }
         private void Logout_Clicked(object sender, EventArgs e)
         {
             Application.Current.MainPage = new NavigationPage(new LoginPage());

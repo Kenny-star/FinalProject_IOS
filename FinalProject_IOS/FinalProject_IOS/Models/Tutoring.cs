@@ -6,6 +6,7 @@ namespace FinalProject_IOS.Models
 {
     public class Tutoring
     {
+        public string tutoringId { get; set; }
         public string courseName { get; set; }
         public string teacherName { get; set; }
         public string firstName { get; set; }

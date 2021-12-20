@@ -38,7 +38,7 @@ namespace FinalProject_IOS.Views.Admin
             if (success)
             {
                 await DisplayAlert("Notice", "Tutor has been successfully added!", "OK");
-                Navigation.PushAsync(new TutorManagementPage());
+                await Navigation.PushAsync(new TutorManagementPage());
             }
 
             else

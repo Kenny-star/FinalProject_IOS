@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.Tutor.TutoringPostings">
+
+    <ScrollView>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <ImageButton Source="back.png" Grid.Row="0" Grid.Column="0" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
+                             Clicked="GoBack_Clicked"/>
+                <Label Text="Assign Tutors" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1" FontSize="28" 
+                         VerticalTextAlignment="Center" TextColor="Black" Margin="20,0,0,0"/>
+
+                <Label Text="Tutors:" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="2" FontSize="20" 
+                         VerticalTextAlignment="Center" TextColor="Black" Margin="20,0,0,0"/>
+
+            </Grid>
+            <ListView x:Name="tutorPostingsListView"
+                      ItemsSource="{Binding mytutoringAvailabilities}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Margin="10,0,0,0"
+                                    Text="{Binding firstName}" FontSize="Medium"/>
+                                <Label Grid.Row="0" Grid.Column="1"
+                                    Text="{Binding date}" FontSize="Medium"/>
+                                <Label Grid.Row="1" Grid.Column="0"
+                                    Text="{Binding startTime}" FontSize="Medium"/>
+                                <Label Grid.Row="1" Grid.Column="1"
+                                    Text="{Binding endTime}" FontSize="Medium"/>
+                                <Image Source="delete.png"
+                                       Grid.Row="0" Grid.Column="3"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="DeleteTutorTap"
+                                            Tapped="Delete_Tapped"
+                                            CommandParameter="{Binding tutoringId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Image Source="edit.png"
+                                       Grid.Row="0" Grid.Column="4"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="EditTutorTap"
+                                            Tapped="Edit_Clicked"
+                                            CommandParameter="{Binding tutoringId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

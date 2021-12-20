@@ -145,36 +145,12 @@ namespace FinalProject_IOS.Models
             }).ToList();
         }
 
-        public async Task<bool> AddAvailability(string accountId, string firstName1, string lastName, string availability, string start, string end)
+        public async Task<bool> AddAvailability(string tutoringId, string accountId, string firstName1, string lastName, string availability, string start, string end)
         {
-            /*
-            var toUpdatePerson = (await firebaseClient
-            .Child("Users")
-            .OnceAsync<User>()).Where(a => a.Object.role == "Tutor" && a.Object.accountId == accountId).FirstOrDefault();
-
-            if (toUpdatePerson == null)
-            {
-                return false;
-            }
-            else
-            {
-
-                await firebaseClient.Child("Users").Child("Tutoring").Child(toUpdatePerson.Key).PostAsync(new Tutoring()
-                {
-                    firstName = firstName,
-                    lasttName = lastName,
-                    date = availability,
-                    startTime = start,
-                    endTime = end,
-
-                });
-
-                return true;
-            }
-            */
 
             await firebaseClient.Child("Users").Child("Tutoring").PostAsync(new Tutoring()
             {
+                tutoringId = tutoringId,
                 firstName = firstName1,
                 lasttName = lastName,
                 tutorId = accountId,
@@ -191,6 +167,7 @@ namespace FinalProject_IOS.Models
         {
             return (await firebaseClient.Child("Users").Child("Tutoring").OnceAsync<Tutoring>()).Select(item => new Tutoring
             {
+                tutoringId = item.Object.tutoringId,
                 tutorId = item.Object.tutorId,
                 firstName = item.Object.firstName,
                 lasttName = item.Object.lasttName,
@@ -205,13 +182,13 @@ namespace FinalProject_IOS.Models
         public async Task<Tutoring> GetTutorByID(string SId)
         {
             var allTutors = await GetAllTutoringOffers();
-            await firebaseClient.Child("User").Child("Tutoring").OnceAsync<Tutoring>();
+            await firebaseClient.Child("Users").Child("Tutoring").OnceAsync<Tutoring>();
             return allTutors.Where(a => a.tutorId == SId).FirstOrDefault();
         }
 
         public async Task<List<Tutoring>> GetByTutorId(string sId)
         {
-            return (await firebaseClient.Child("User").Child("Tutoring").OnceAsync<Tutoring>()).Where(s => s.Object.tutorId == sId).Select(item => new Tutoring
+            return (await firebaseClient.Child("Users").Child("Tutoring").OnceAsync<Tutoring>()).Where(s => s.Object.tutorId == sId).Select(item => new Tutoring
             {
                 tutorId = item.Object.tutorId,
                 firstName = item.Object.firstName,
@@ -223,6 +200,13 @@ namespace FinalProject_IOS.Models
             }).ToList();
         }
 
+        public async Task<Tutoring> GetByTutoringSessionById(string sId)
+        {
+            
+            var allTutoringSessions = await GetAllTutoringOffers();
+            await firebaseClient.Child("Users").Child("Tutoring").OnceAsync<Tutoring>();
+            return allTutoringSessions.Where(a => a.tutoringId == sId).FirstOrDefault();
+        }
 
         //  ------------------------------------------                       ------------------------------------------
         //  ------------------------------------------   CRUD For teachers   ------------------------------------------
@@ -294,7 +278,7 @@ namespace FinalProject_IOS.Models
         {
             string hash = auth.hashPassword(password);
 
-            await firebaseClient.Child("Users").PostAsync(new User() { accountId = accountId, courseId = courseId, userName = username, password = hash, firstName = firstname, lastName = lastname, email = email, role = "Tutor", userStatus = "Accepted" });
+            await firebaseClient.Child("Users").PostAsync(new User() {accountId = accountId, courseId = courseId, userName = username, password = hash, firstName = firstname, lastName = lastname, email = email, role = "Tutor", userStatus = "Accepted" });
             return true;
         }
 
@@ -371,24 +355,52 @@ namespace FinalProject_IOS.Models
         }
 
 
+        public async Task<List<Tutoring>> GetMyTutoringOffers(string sID)
+        {
+            return (await firebaseClient.Child("Users").Child("Tutoring").OnceAsync<Tutoring>()).Where(x => x.Object.tutorId == sID).Select(item => new Tutoring
+            {
+                tutoringId = item.Object.tutoringId,
+                tutorId = item.Object.tutorId,
+                firstName = item.Object.firstName,
+                lasttName = item.Object.lasttName,
+                date = item.Object.date,
+                startTime = item.Object.startTime,
+                endTime = item.Object.endTime
 
 
+            }).ToList();
+        }
 
 
+        public async Task<bool> DeleteTutoring(string sID)
+        {
+            var deletedTutoring = (await firebaseClient.Child("Users").Child("Tutoring").OnceAsync<Tutoring>()).FirstOrDefault(a => a.Object.tutoringId == sID);
+
+            await firebaseClient.Child("Users").Child("Tutoring").Child(deletedTutoring.Key).DeleteAsync();
+
+            return true;
+        }
 
 
+        public async Task<bool> EditAvailability(string TutoringId, string AccountId, string FirstName, string LastName,
+                                                 string Availability, string Start, string End)
+        {
 
+            var session = (await firebaseClient.Child("Users").Child("Tutoring").OnceAsync<Tutoring>()).Where(a => a.Object.tutoringId == TutoringId).FirstOrDefault();
 
+            await firebaseClient.Child("Users").Child("Tutoring").Child(session.Key).PutAsync(new Tutoring(){
+                tutoringId = TutoringId,
+                tutorId = AccountId,
+                firstName = FirstName,
+                lasttName = LastName,
+                date = Availability,
+                startTime = Start,
+                endTime = End
 
+            });
 
-
-
-
-
-
-
-
-
+            return true;
+        }
 
 
 

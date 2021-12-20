@@ -36,6 +36,7 @@ namespace FinalProject_IOS.Views.Tutor
 
         private async void AddTutoringSession_Clicked(object sender, EventArgs e)
         {
+            string tutoringId = Guid.NewGuid().ToString("N");
             string accountId = user1.accountId;
             string firstName = user1.firstName;
             string lasttName = user1.lastName;
@@ -43,7 +44,7 @@ namespace FinalProject_IOS.Views.Tutor
             string start = StartTime.Time.ToString();
             string end = EndTime.Time.ToString();
 
-            bool response = await f.AddAvailability(accountId, firstName, lasttName, availability, start, end);
+            bool response = await f.AddAvailability(tutoringId, accountId, firstName, lasttName, availability, start, end);
 
             if (response)
             {

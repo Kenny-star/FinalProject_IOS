@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.Tutor.EditTutoringPostingPage">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+
+            <ImageButton Source="back.png" Grid.Row="0" HorizontalOptions="Start" 
+                         HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF"
+                         Margin="15,0,0,20" Clicked="GoBack_Clicked"/>
+
+            <Label Text="Add a Session" TextColor="Black" Grid.Row="2"
+                   FontSize="38" HorizontalTextAlignment="Center"/>
+
+            <Label Text="Available: " TextColor="Black" Grid.Row="5"
+                   FontSize="20" Margin="90,0,0,0" VerticalOptions="Center"/>
+            <DatePicker x:Name="DateInput"  Grid.Row="5" Margin="170,0,50,0" HorizontalOptions="Center"/>
+
+            <Label Text="Start: " TextColor="Black" Grid.Row="6"
+                   FontSize="20" Margin="130,0,0,0" VerticalOptions="Center"/>
+            <TimePicker x:Name="StartTime" Grid.Row="6" Margin="170,0,50,0" HorizontalOptions="Center"/>
+
+
+            <Label Text="End: " TextColor="Black" Grid.Row="7"
+                   FontSize="20" Margin="140,0,0,0" VerticalOptions="Center"/>
+            <TimePicker x:Name="EndTime" Grid.Row="7" Margin="170,0,50,0" HorizontalOptions="Center"/>
+
+            <Button x:Name="EditTutoringClicked" Text="Update" 
+                    BackgroundColor="#5578C9" TextColor="White" Margin="50,10,50,10"
+                    Grid.Row="8"
+                    Clicked="EditTutoringSession_Clicked"></Button>
+        </Grid>
+    </StackLayout>
+</ContentPage>

@@ -11,6 +11,8 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -25,6 +27,9 @@
         <Button x:Name="Add_Tutoring" Text="Add Tutoring" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="3" 
                 Margin="15, 0, 15, 0" Clicked="AddSession_Clicked"/>
 
+        <Button x:Name="View_Tutoring" Text="My Tutoring Sessions" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="3" 
+                Margin="15, 0, 15, 0" Clicked="ViewSession_Clicked"/>
+        
         <Label Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
 
         <Button x:Name="Logout" Text="Logout" BackgroundColor="#4682b4" TextColor="White" Grid.Column="1" Grid.Row="11"
