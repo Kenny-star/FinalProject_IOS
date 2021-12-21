@@ -19,5 +19,6 @@ namespace FinalProject_IOS.Models
         public string startTime { get; set; }
         public string endTime { get; set; }
         public double hoursTutored { get; set; }
+        public double hoursAttended { get; set; }
     }
 }

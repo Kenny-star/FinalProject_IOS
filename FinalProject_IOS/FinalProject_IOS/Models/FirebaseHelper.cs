@@ -403,7 +403,33 @@ namespace FinalProject_IOS.Models
         }
 
 
+        public async Task<bool> JoinTutoringSession(string tutoringId, string accountId, string firstName1, string lastName, string availability, string start, string end)
+        {
 
+            await firebaseClient.Child("Users").Child("TutoringSessions").PostAsync(new Tutoring()
+            {
+                tutoringId = tutoringId,
+                firstName = firstName1,
+                lasttName = lastName,
+                tutorId = accountId,
+                date = availability,
+                startTime = start,
+                endTime = end
+
+            });
+
+            return true;
+        }
+
+
+        public async Task<bool> CancelTutoring(string sID, string accID)
+        {
+            var deletedTutoring = (await firebaseClient.Child("Users").Child("TutoringSessions").OnceAsync<Tutoring>()).FirstOrDefault(a => a.Object.tutoringId == sID && a.Object.tutorId == accID);
+
+            await firebaseClient.Child("Users").Child("TutoringSessions").Child(deletedTutoring.Key).DeleteAsync();
+
+            return true;
+        }
 
         public FirebaseHelper()
         {

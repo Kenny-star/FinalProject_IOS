@@ -1,5 +1,6 @@
 ﻿using FinalProject_IOS.Models;
 using FinalProject_IOS.Views.Admin;
+using FinalProject_IOS.Views.Student;
 using FinalProject_IOS.Views.Teacher;
 using FinalProject_IOS.Views.Tutor;
 using System;
@@ -60,6 +61,13 @@ namespace FinalProject_IOS.Views
                         {
                             notFound = false;
                             await Navigation.PushAsync(new TeacherDashboardPage());
+                            break;
+                        }
+
+                        if (user.role == "Tutee" && user.userStatus == "Accepted")
+                        {
+                            notFound = false;
+                            await Navigation.PushAsync(new TuteeDashboardPage(user));
                             break;
                         }
 

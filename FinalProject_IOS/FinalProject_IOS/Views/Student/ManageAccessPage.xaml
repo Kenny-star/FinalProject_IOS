@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.Student.ManageAccessPage">
+    <StackLayout>
+        <ListView x:Name="JoinTutoringSessionFormListView"
+                ItemsSource="{Binding target}"
+                HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <ImageButton Source="back.png" Grid.Row="0" Grid.Column="0" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
+                             Clicked="GoBack_Clicked"/>
+
+                            <Label Text="Tutor" Grid.Column="2" Grid.Row="2" FontSize="30" Grid.ColumnSpan="3" TextColor="Black"/>
+
+                            <Label Text="First Name:" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" FontSize="20" TextColor="Black"/>
+                            <Label Text="{Binding firstName}" Grid.Column="1" Grid.Row="4" FontSize="20" TextColor="Black"/>
+
+                            <Label Text="Last Name:" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" FontSize="20" TextColor="Black"/>
+                            <Label Text="{Binding lasttName}" Grid.Column="1" Grid.Row="6" FontSize="20" TextColor="Black"/>
+
+                            <Label Text="Hours:" Grid.Column="1" Grid.Row="7" FontSize="20" TextColor="Black"/>
+                            <Label Text="XXXXX" Grid.Column="1" Grid.Row="8" FontSize="20" TextColor="Black"/>
+
+
+                            <Button x:Name="AddTutoringSessionClicked" Text="Join" 
+                    BackgroundColor="#5578C9" TextColor="White"
+                    Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"
+                    Clicked="JoinTutoringSession_Clicked"></Button>
+
+                            <Button x:Name="CancelTutoringSessionClicked" Text="Cancel" 
+                    BackgroundColor="#5578C9" TextColor="White"
+                    Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="3"
+                    Clicked="CancelTutoringSession_Clicked"></Button>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </StackLayout>
+</ContentPage>

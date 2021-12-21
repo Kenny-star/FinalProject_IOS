@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.Student.TuteeDashboardPage">
+    <ScrollView>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <Image Source="Tutoring_Logo.gif" Grid.Row="0" Grid.ColumnSpan="3"/>
+
+            <Label Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+
+            <Button x:Name="GetTutoring" Text="Find Tutors" BackgroundColor="#1f195a" TextColor="White" Grid.Column="1" Grid.Row="1" 
+                Margin="15, 0, 15, 0" Clicked="FindTutors_Clicked"/>
+
+
+            <Label Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="8"/>
+
+            <Button x:Name="Logout" Text="Logout" BackgroundColor="#da1820" TextColor="White" Grid.Column="1" Grid.Row="11"
+                Margin="15, 0, 15, 0" Clicked="Logout_Clicked"/>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
