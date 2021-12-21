@@ -431,6 +431,16 @@ namespace FinalProject_IOS.Models
             return true;
         }
 
+        public async Task<bool> AssignTutorToCourse(string courseName, string teacherName, string tutoringId, string tutorId,  string firstName, string lasttName, string date, string startTime, string endTime)
+
+        {
+            var toUpdateTutor = (await firebaseClient.Child("Users").Child("Tutoring").OnceAsync<Tutoring>()).Where(a => a.Object.tutoringId == tutoringId && a.Object.tutorId == tutorId).FirstOrDefault();
+
+            await firebaseClient.Child("Users").Child("Tutoring").Child(toUpdateTutor.Key).PutAsync(new Tutoring() { tutoringId = tutoringId, tutorId = tutorId, courseName = courseName, teacherName = teacherName, firstName = firstName, lasttName = lasttName, date = date, startTime = startTime, endTime = endTime }) ;
+
+            return true;
+        }
+
         public FirebaseHelper()
         {
         }

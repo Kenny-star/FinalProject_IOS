@@ -40,7 +40,7 @@ namespace FinalProject_IOS.Views.Tutor
             string accountId = user1.accountId;
             string firstName = user1.firstName;
             string lasttName = user1.lastName;
-            string availability = DateInput.Date.ToString();
+            string availability = DateInput.Date.ToString("d");
             string start = StartTime.Time.ToString();
             string end = EndTime.Time.ToString();
 

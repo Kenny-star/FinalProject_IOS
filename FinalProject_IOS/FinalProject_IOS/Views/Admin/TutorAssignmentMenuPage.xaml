@@ -48,13 +48,19 @@
             <Label Text="Hours:" Grid.Column="1" Grid.Row="7" FontSize="20" TextColor="Black"/>
             <Label Text="XXXXX" Grid.Column="1" Grid.Row="8" FontSize="20" TextColor="Black"/>
 
-            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Column="1" Grid.Row="9"
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+        </ListView>
+        <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Column="1" Grid.Row="9"
                    Grid.ColumnSpan="3">
-                <Entry x:Name="TeacherId" Placeholder="Add Teacher Id"/>
+                <Entry x:Name="TeacherName" Placeholder="Add Teacher Name"/>
             </Frame>
             <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Column="1" Grid.Row="10"
                    Grid.ColumnSpan="3">
-                <Entry x:Name="CourseId" Placeholder="Add Course Id"/>
+                <Entry x:Name="CourseName" Placeholder="Add Course Name"/>
             </Frame>
 
             <Button x:Name="AddTutorClicked" Text="Submit" 
@@ -62,12 +68,6 @@
                     Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="3"
                     Clicked="AddTutor_Clicked"></Button>
 
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
 
-            </ListView.ItemTemplate>
-
-        </ListView>
     </StackLayout>
 </ContentPage>

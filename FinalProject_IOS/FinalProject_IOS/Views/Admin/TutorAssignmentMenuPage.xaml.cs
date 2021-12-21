@@ -21,12 +21,13 @@ namespace FinalProject_IOS.Views.Admin
         {
             InitializeComponent();
 
+            tutor.tutoringId = t.tutoringId;
             tutor.tutorId = t.tutorId;
             tutor.firstName = t.firstName;
             tutor.lasttName = t.lasttName;
             tutor.date = t.date;
             tutor.startTime = t.startTime;
-            tutor.lasttName = t.lasttName;
+            tutor.endTime = t.endTime;
         }
         public TutorAssignmentMenuPage()
         { }
@@ -47,9 +48,30 @@ namespace FinalProject_IOS.Views.Admin
             Navigation.PushAsync(new AssignTutorsPage());
         }
 
-        private void AddTutor_Clicked(object sender, EventArgs e)
+        private async void AddTutor_Clicked(object sender, EventArgs e)
         {
-            //Insert to db
+            string courseName = CourseName.Text;
+            string teacherName = TeacherName.Text;
+            string tutoringId = tutor.tutoringId;
+            string tutorId = tutor.tutorId;
+            string firstName = tutor.firstName;
+            string lasttName = tutor.lasttName;
+            string date = tutor.date;
+            string startTime = tutor.startTime;
+            string endTime = tutor.endTime;
+
+            bool response = await f.AssignTutorToCourse(courseName, teacherName, tutoringId, tutorId, firstName, lasttName, date, startTime, endTime);
+
+            if(response)
+            {
+                await DisplayAlert("Notice", "Tutor has been successfully assigned to a course and teacher", "OK");
+                await Navigation.PushAsync(new AssignTutorsPage());
+
+            }
+            else
+            {
+                await DisplayAlert("Error", "Failed to assign a course and a teacher to the tutor!", "OK");
+            }
         }
 
     }
