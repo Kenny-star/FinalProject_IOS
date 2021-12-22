@@ -55,7 +55,7 @@
                                 <Label Grid.Row="0" Grid.Column="2"
                                     Text="{Binding courseId}" FontSize="Medium"/>
 
-                                <Image Source="add.png"
+                                <Image Source="edit.png"
                                        Grid.Row="0" Grid.Column="3"
                                        HeightRequest="40"
                                        WidthRequest="40">
@@ -65,7 +65,7 @@
                                             CommandParameter="{Binding accountId}"/>
                                     </Image.GestureRecognizers>
                                 </Image>
-                                <Image Source="back.png"
+                                <Image Source="delete.png"
                                        Grid.Row="0" Grid.Column="4"
                                        HeightRequest="40"
                                        WidthRequest="40">

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.Admin.GradingGridPage">
+    <ScrollView>
+        <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ImageButton Source="back.png" Grid.Row="0" Grid.Column="0" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
+                             Clicked="GoBack_Clicked"/>
+
+            <Label Text="Grade Session" Grid.Column="1" Grid.Row="2" FontSize="30" Grid.ColumnSpan="3" TextColor="Black"/>
+            
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Column="0" Grid.Row="4"
+                   Grid.ColumnSpan="5" Margin="50,0,50,0">
+                    <Entry x:Name="Punctuality" Placeholder="Add Grade for Punctuality /10" Keyboard="Numeric"/>
+            </Frame>
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Column="0" Grid.Row="5"
+                   Grid.ColumnSpan="5" Margin="50,0,50,0">
+                    <Entry x:Name="Helpfulness" Placeholder="Add Grade for Helpfulness /10" Keyboard="Numeric"/>
+            </Frame>
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Column="0" Grid.Row="6"
+                   Grid.ColumnSpan="5" Margin="50,0,50,0">
+                <Entry x:Name="Respect" Placeholder="Add Grade for Respect /10" Keyboard="Numeric"/>
+            </Frame>
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Column="0" Grid.Row="7"
+                   Grid.ColumnSpan="5" Margin="50,0,50,0">
+                    <Entry x:Name="Seriousness" Placeholder="Add Grade for Seriousness /10" Keyboard="Numeric"/>
+            </Frame>
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Column="0" Grid.Row="8"
+                   Grid.ColumnSpan="5" Margin="50,0,50,0">
+                    <Entry x:Name="Commitment" Placeholder="Add Grade for Commitment /10" Keyboard="Numeric"/>
+            </Frame>
+
+            <Button x:Name="GradeSessionClicked" Text="Grade Session" 
+                    BackgroundColor="#5578C9" TextColor="White"
+                    Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"
+                    Clicked="GradeSession_Clicked"></Button>
+        </Grid>
+    </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,27 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FinalProject_IOS.Views.Admin.StudentsListPage"
-             BackgroundColor="White">
-
+             x:Class="FinalProject_IOS.Views.Student.AttendedHoursPage">
     <ScrollView>
         <StackLayout>
             <Grid>
                 <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <ImageButton Source="back.png" Grid.Row="0" Grid.Column="0" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
                              Clicked="GoBack_Clicked"/>
-                <Label Text="Tutoring Sessions" Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="1" FontSize="28" 
+                <Label Text="Tutoring Attendances" Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="1" FontSize="28" 
                          VerticalTextAlignment="Center" TextColor="Black" Margin="20,0,0,0"/>
             </Grid>
-            <ListView x:Name="tuteesListView"
+            <ListView x:Name="studentsListView"
                       ItemsSource="{Binding allStudents}"
                       HasUnevenRows="True">
                 <ListView.ItemTemplate>
@@ -30,13 +28,14 @@
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="2*"/>
-   
+
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Row="0" Grid.Column="0" 
                                     Text="{Binding firstName}" FontSize="Medium" Padding="0,0,0,30"/>
@@ -46,6 +45,8 @@
                                     Text="{Binding startTime}" FontSize="Medium"/>
                                 <Label Grid.Row="0" Grid.Column="3"
                                     Text="{Binding endTime}" FontSize="Medium"/>
+                                <Label Grid.Row="1" Grid.Column="2"
+                                    Text="{Binding hoursAttended}" FontSize="Medium"/>
 
                             </Grid>
 
@@ -56,5 +57,5 @@
 
             </ListView>
         </StackLayout>
-        </ScrollView>
+    </ScrollView>
 </ContentPage>

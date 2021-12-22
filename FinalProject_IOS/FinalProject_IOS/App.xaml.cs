@@ -14,7 +14,7 @@ namespace FinalProject_IOS
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new AdminDashboardPage());
         }
 
         protected override void OnStart()

@@ -19,7 +19,6 @@
   <ItemGroup>
     <Folder Include="Views\Admin\Teachers\" />
     <Folder Include="Views\Admin\Courses\" />
-    <Folder Include="Views\Admin\Tutor\" />
     <Folder Include="Views\Admin\Student\" />
   </ItemGroup>
 
@@ -42,6 +41,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\Admin\GradingGridPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Admin\Tutor\GradesDisplayPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Student\AttendedHoursPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Student\ManageAccessPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

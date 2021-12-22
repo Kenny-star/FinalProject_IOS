@@ -44,7 +44,12 @@ namespace FinalProject_IOS.Views.Tutor
             string start = StartTime.Time.ToString();
             string end = EndTime.Time.ToString();
 
-            bool response = await f.AddAvailability(tutoringId, accountId, firstName, lasttName, availability, start, end);
+            DateTime dtFrom = DateTime.Parse(start);
+            DateTime dtTo = DateTime.Parse(end);
+
+            double timeDiff = dtTo.Hour - dtFrom.Hour;
+
+            bool response = await f.AddHoursTutored(tutoringId, accountId, firstName, lasttName, availability, start, end, timeDiff);
 
             if (response)
             {

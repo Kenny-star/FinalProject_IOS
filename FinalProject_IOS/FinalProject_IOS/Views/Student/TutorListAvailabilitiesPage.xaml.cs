@@ -21,6 +21,7 @@ namespace FinalProject_IOS.Views.Student
             user1.accountId = user.accountId;
             user1.courseId = user.courseId;
             user1.firstName = user.firstName;
+            user1.email = user.email;
             user1.lastName = user.lastName;
             user1.role = user.role;
         }
@@ -39,7 +40,9 @@ namespace FinalProject_IOS.Views.Student
             string tutoringId = ((TappedEventArgs)e).Parameter.ToString();
 
             var tutoringSession = await f.GetByTutoringSessionById(tutoringId);
+            
             await Navigation.PushAsync(new ManageAccessPage(user1,tutoringSession));
+            
         }
 
 

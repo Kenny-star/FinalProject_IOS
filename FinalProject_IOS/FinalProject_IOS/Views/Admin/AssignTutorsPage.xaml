@@ -57,6 +57,17 @@
                                     Text="{Binding startTime}" FontSize="Medium"/>
                                 <Label Grid.Row="1" Grid.Column="1"
                                     Text="{Binding endTime}" FontSize="Medium"/>
+                                
+                                <Image Source="report.png" x:Name="grade"
+                                       Grid.Row="0" Grid.Column="2"
+                                       HeightRequest="40"
+                                       WidthRequest="40">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="GradeTutorTap"
+                                            Tapped="GradeTutor_Clicked"
+                                            CommandParameter="{Binding tutoringId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
                                 <Image Source="see.jpg"
                                        Grid.Row="0" Grid.Column="3"
                                        HeightRequest="40"
@@ -64,7 +75,7 @@
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="ViewTutorTap"
                                             Tapped="ViewTutor_Clicked"
-                                            CommandParameter="{Binding tutorId}"/>
+                                            CommandParameter="{Binding tutoringId}"/>
                                     </Image.GestureRecognizers>
                                 </Image>
                                 <Image Source="assign.png"

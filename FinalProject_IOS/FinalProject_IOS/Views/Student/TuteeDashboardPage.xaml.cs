@@ -21,6 +21,7 @@ namespace FinalProject_IOS.Views.Student
             user1.courseId = user.courseId;
             user1.firstName = user.firstName;
             user1.lastName = user.lastName;
+            user1.email = user.email;
             user1.role = user.role;
         }
 

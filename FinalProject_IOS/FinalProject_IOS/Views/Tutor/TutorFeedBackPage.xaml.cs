@@ -71,7 +71,7 @@ namespace FinalProject_IOS.Views.Tutor
             var myTutees = await f.GetMyTutoringStudents(t.tutoringId);
 
             tutorStudentsListView.ItemsSource = null;
-            tutorStudentsListView.ItemsSource = myTutees
+            tutorStudentsListView.ItemsSource = myTutees;
         }
 
         private async void DeleteTutee_Tapped(object sender, EventArgs e)

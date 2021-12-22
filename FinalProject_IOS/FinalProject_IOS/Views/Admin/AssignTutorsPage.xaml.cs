@@ -17,6 +17,7 @@ namespace FinalProject_IOS.Views.Admin
         public AssignTutorsPage()
         {//Should have a mvvm or and Onclick to pass object to new navigation.
             InitializeComponent();
+
         }
 
         private void GoBack_Clicked(object sender, EventArgs e)
@@ -40,19 +41,29 @@ namespace FinalProject_IOS.Views.Admin
             
         }
 
-        private void ViewTutor_Clicked(object sender, EventArgs e)
+        private async void ViewTutor_Clicked(object sender, EventArgs e)
         {
-            //Should have a mvvm or and Onclick to pass object to new navigation.
-            Navigation.PushAsync(new StudentsListPage());
+            string tutoringId = ((TappedEventArgs)e).Parameter.ToString();
+            var tutor = await f.GetByTutoringSessionById(tutoringId);
+            await Navigation.PushAsync(new StudentsListPage(tutor));
         }
 
         protected override async void OnAppearing()
         {
 
             var tutoringAvailabilities = await f.GetAllTutoringOffers();
-
+            
             tutorsListView.ItemsSource = null;
             tutorsListView.ItemsSource = tutoringAvailabilities;
+
+            
+        }
+
+        private async void GradeTutor_Clicked(object sender, EventArgs e)
+        {
+            string tutoringId = ((TappedEventArgs)e).Parameter.ToString();
+            var tutor = await f.GetByTutoringSessionById(tutoringId);
+            await Navigation.PushAsync(new GradingGridPage(tutor));
         }
         /*
         private async void DeleteCourse_Tapped(object sender, EventArgs e)

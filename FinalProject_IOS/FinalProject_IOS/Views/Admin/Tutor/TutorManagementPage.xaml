@@ -42,7 +42,7 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2.5*"/>
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="*"/>
@@ -52,10 +52,22 @@
                                     Text="{Binding firstName}" FontSize="Medium"/>
                                 <Label Grid.Row="0" Grid.Column="1"
                                     Text="{Binding lastName}" FontSize="Medium"/>
-                                <Label Grid.Row="0" Grid.Column="2"
+                                <Label Grid.Row="1" Grid.Column="0" Margin="10,0,0,0"
                                     Text="{Binding courseId}" FontSize="Medium"/>
 
-                                <Image Source="add.png"
+                                <Image Source="see.png"
+                                       Grid.Row="0" Grid.Column="2"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       Margin="60,0,0,0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="SeeGradesTap"
+                                            Tapped="SeeGrades_Tapped"
+                                            CommandParameter="{Binding accountId}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                
+                                <Image Source="edit.png"
                                        Grid.Row="0" Grid.Column="3"
                                        HeightRequest="40"
                                        WidthRequest="40">
@@ -65,7 +77,7 @@
                                             CommandParameter="{Binding accountId}"/>
                                     </Image.GestureRecognizers>
                                 </Image>
-                                <Image Source="back.png"
+                                <Image Source="delete.png"
                                        Grid.Row="0" Grid.Column="4"
                                        HeightRequest="40"
                                        WidthRequest="40">

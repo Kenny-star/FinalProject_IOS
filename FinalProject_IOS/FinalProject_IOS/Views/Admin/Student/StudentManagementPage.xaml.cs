@@ -1,4 +1,6 @@
 ﻿using FinalProject_IOS.Models;
+using FinalProject_IOS.Views.Admin.Tutor;
+using FinalProject_IOS.Views.Student;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +30,22 @@ namespace FinalProject_IOS.Views.Admin
             studentList.ItemsSource = null;
             studentList.ItemsSource = allStudents.Where(u => u.role == "Tutee");
         }
+
+        private async void SeeGrades_Tapped(object sender, EventArgs e)
+        {
+            string accountId = ((TappedEventArgs)e).Parameter.ToString();
+
+            if (accountId == null)
+            {
+                await DisplayAlert("Warning", "Tutor not found", "OK");
+            }
+            else
+            {
+                await Navigation.PushAsync(new AttendedHoursPage(accountId));
+            }
+
+        }
+
 
         private async void DeleteStudent_Tapped(object sender, EventArgs e)
         {

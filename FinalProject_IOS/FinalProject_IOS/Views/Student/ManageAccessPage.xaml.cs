@@ -23,6 +23,7 @@ namespace FinalProject_IOS.Views.Student
             user1.accountId = user.accountId;
             user1.courseId = user.courseId;
             user1.firstName = user.firstName;
+            user1.email = user.email;
             user1.lastName = user.lastName;
             user1.role = user.role;
 
@@ -57,11 +58,19 @@ namespace FinalProject_IOS.Views.Student
             string accountId = user1.accountId;
             string firstName = user1.firstName;
             string lasttName = user1.lastName;
+            string email = user1.email;
             string availability = tutoringSession1.date;
             string start = tutoringSession1.startTime;
             string end = tutoringSession1.endTime;
 
-            bool response = await f.JoinTutoringSession(tutoringId, accountId, firstName, lasttName, availability, start, end);
+            DateTime dtFrom = DateTime.Parse(start);
+            DateTime dtTo = DateTime.Parse(end);
+
+            double timeDiff = dtTo.Hour - dtFrom.Hour;
+
+            bool response = await f.JoinTutoringSession(tutoringId, accountId, firstName, lasttName, availability, start, end, timeDiff);
+
+
 
             if (response)
             {

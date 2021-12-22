@@ -144,7 +144,7 @@ namespace FinalProject_IOS.Models
 
             }).ToList();
         }
-
+        
         public async Task<bool> AddAvailability(string tutoringId, string accountId, string firstName1, string lastName, string availability, string start, string end)
         {
 
@@ -162,7 +162,7 @@ namespace FinalProject_IOS.Models
 
             return true;
         }
-
+        
         public async Task<List<Tutoring>> GetAllTutoringOffers()
         {
             return (await firebaseClient.Child("Users").Child("Tutoring").OnceAsync<Tutoring>()).Select(item => new Tutoring
@@ -403,7 +403,7 @@ namespace FinalProject_IOS.Models
         }
 
 
-        public async Task<bool> JoinTutoringSession(string tutoringId, string accountId, string firstName1, string lastName, string availability, string start, string end)
+        public async Task<bool> JoinTutoringSession(string tutoringId, string accountId, string firstName1, string lastName, string availability, string start, string end, double hoursTutored)
         {
             var toUpdateTutoringSession = (await firebaseClient.Child("Users").Child("TutoringSessions").OnceAsync<Tutoring>()).Where(a => a.Object.tutoringId == tutoringId).FirstOrDefault();
 
@@ -415,7 +415,8 @@ namespace FinalProject_IOS.Models
                 tutorId = accountId,
                 date = availability,
                 startTime = start,
-                endTime = end
+                endTime = end,
+                hoursAttended = hoursTutored
             });
 
             return true;
@@ -457,7 +458,11 @@ namespace FinalProject_IOS.Models
                 tutoringId = item.Object.tutoringId,
                 tutorId = item.Object.tutorId,
                 firstName = item.Object.firstName,
-                lasttName = item.Object.lasttName
+                lasttName = item.Object.lasttName,
+                startTime = item.Object.startTime,
+                endTime = item.Object.endTime,
+                date = item.Object.date
+                
             }).ToList();
         }
 
@@ -481,7 +486,80 @@ namespace FinalProject_IOS.Models
             return true;
         }
 
+        public async Task<bool> AddGrade(string TutoringId, string AccountId, string FirstName, string LastName,
+                                         string Availability, string Start, string End, string grade)
+        {
 
+            var session = (await firebaseClient.Child("Users").Child("Tutoring").OnceAsync<Tutoring>()).Where(a => a.Object.tutoringId == TutoringId).FirstOrDefault();
+
+            await firebaseClient.Child("Users").Child("Tutoring").Child(session.Key).PutAsync(new Tutoring()
+            {
+                tutoringId = TutoringId,
+                tutorId = AccountId,
+                firstName = FirstName,
+                lasttName = LastName,
+                date = Availability,
+                startTime = Start,
+                endTime = End,
+                grade = grade
+
+            });
+
+            return true;
+        }
+
+        public async Task<List<Tutoring>> GetByTutoringSessionByTutorId(string sID)
+        {
+            return (await firebaseClient.Child("Users").Child("Tutoring").OnceAsync<Tutoring>()).Where(u => u.Object.tutorId == sID).Select(item => new Tutoring
+            {
+                tutoringId = item.Object.tutoringId,
+                tutorId = item.Object.tutorId,
+                firstName = item.Object.firstName,
+                lasttName = item.Object.lasttName,
+                startTime = item.Object.startTime,
+                endTime = item.Object.endTime,
+                date = item.Object.date,
+                grade = item.Object.grade,
+                hoursTutored = item.Object.hoursTutored
+
+            }).ToList();
+        }
+
+        public async Task<bool> AddHoursTutored(string TutoringId, string AccountId, string FirstName, string LastName,
+                                 string Availability, string Start, string End, double HoursTutored)
+        {
+
+            await firebaseClient.Child("Users").Child("Tutoring").PostAsync(new Tutoring()
+            {
+                tutoringId = TutoringId,
+                tutorId = AccountId,
+                firstName = FirstName,
+                lasttName = LastName,
+                date = Availability,
+                startTime = Start,
+                endTime = End,
+                hoursTutored = HoursTutored
+
+            });
+
+            return true;
+        }
+
+        public async Task<List<Tutoring>> GetByTutoringSessionByTuteeId(string sID)
+        {
+            return (await firebaseClient.Child("Users").Child("TutoringSessions").OnceAsync<Tutoring>()).Where(u => u.Object.tutorId == sID).Select(item => new Tutoring
+            {
+                tutoringId = item.Object.tutoringId,
+                tutorId = item.Object.tutorId,
+                firstName = item.Object.firstName,
+                lasttName = item.Object.lasttName,
+                startTime = item.Object.startTime,
+                endTime = item.Object.endTime,
+                date = item.Object.date,
+                hoursAttended = item.Object.hoursAttended
+
+            }).ToList();
+        }
         public FirebaseHelper()
         {
         }
