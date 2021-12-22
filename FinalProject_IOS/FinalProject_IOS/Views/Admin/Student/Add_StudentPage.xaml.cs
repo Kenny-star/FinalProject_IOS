@@ -38,7 +38,7 @@ namespace FinalProject_IOS.Views.Admin
             if (success)
             {
                 await DisplayAlert("Notice", "Student has been successfully added!", "OK");
-                Navigation.PushAsync(new StudentManagementPage());
+                await Navigation .PushAsync(new StudentManagementPage());
             }
 
             else

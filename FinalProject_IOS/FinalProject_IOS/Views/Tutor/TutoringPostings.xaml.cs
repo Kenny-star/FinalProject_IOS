@@ -28,10 +28,6 @@ namespace FinalProject_IOS.Views.Tutor
             user1.email = user.email;
             user1.role = user.role;
         }
-        public TutoringPostings()
-        {
-            InitializeComponent();
-        }
 
         private void GoBack_Clicked(object sender, EventArgs e)
         {
@@ -83,6 +79,14 @@ namespace FinalProject_IOS.Views.Tutor
             }
 
         }
+        private async void Report_Clicked(object sender, EventArgs e)
+        {
+            string sID = ((TappedEventArgs)e).Parameter.ToString();
+            var tutoringSession = await f.GetByTutoringSessionsById(sID);
 
+
+            await Navigation.PushAsync(new TutorFeedBackPage(user1, tutoringSession));
+        }
+            
     }
 }

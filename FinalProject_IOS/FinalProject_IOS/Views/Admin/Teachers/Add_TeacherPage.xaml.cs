@@ -38,7 +38,7 @@ namespace FinalProject_IOS.Views.Admin
             if (success)
             {
                 await DisplayAlert("Notice", "Teacher has been successfully added!", "OK");
-                Navigation.PushAsync(new TeacherManagementPage());
+                await Navigation .PushAsync(new TeacherManagementPage());
             }
 
             else

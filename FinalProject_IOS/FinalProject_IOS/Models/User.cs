@@ -12,6 +12,7 @@ namespace FinalProject_IOS.Models
         public string lastName { get; set; }
         public string email { get; set; }
         public string courseId { get; set; }
+        public string feedback { get; set; }
         public List<Course> courseLoad { get; set; }
         public List<Tutoring> tutoring { get; set; }
         public string userName { get; set; }

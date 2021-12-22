@@ -405,6 +405,7 @@ namespace FinalProject_IOS.Models
 
         public async Task<bool> JoinTutoringSession(string tutoringId, string accountId, string firstName1, string lastName, string availability, string start, string end)
         {
+            var toUpdateTutoringSession = (await firebaseClient.Child("Users").Child("TutoringSessions").OnceAsync<Tutoring>()).Where(a => a.Object.tutoringId == tutoringId).FirstOrDefault();
 
             await firebaseClient.Child("Users").Child("TutoringSessions").PostAsync(new Tutoring()
             {
@@ -415,7 +416,6 @@ namespace FinalProject_IOS.Models
                 date = availability,
                 startTime = start,
                 endTime = end
-
             });
 
             return true;
@@ -440,6 +440,47 @@ namespace FinalProject_IOS.Models
 
             return true;
         }
+
+        public async Task<Tutoring> GetByTutoringSessionsById(string sId)
+        {
+
+            var allTutoringSessions = await GetAllTutoringOffers();
+            await firebaseClient.Child("Users").Child("TutoringSessions").OnceAsync<Tutoring>();
+            return allTutoringSessions.Where(a => a.tutoringId == sId).FirstOrDefault();
+        }
+
+
+        public async Task<List<Tutoring>> GetMyTutoringStudents(string sID)
+        {
+            return (await firebaseClient.Child("Users").Child("TutoringSessions").OnceAsync<Tutoring>()).Where(u => u.Object.tutoringId == sID).Select(item => new Tutoring
+            {
+                tutoringId = item.Object.tutoringId,
+                tutorId = item.Object.tutorId,
+                firstName = item.Object.firstName,
+                lasttName = item.Object.lasttName
+            }).ToList();
+        }
+
+
+        public async Task<bool> GiveFeedBack(string tutoringId, string accountId, string feedback, string date, string endTime, string startTime, string firstName, string lasttName)
+        {
+            var toUpdateTutee = (await firebaseClient.Child("Users").Child("TutoringSessions").OnceAsync<Tutoring>()).Where(a => a.Object.tutoringId == tutoringId && a.Object.tutorId == accountId).FirstOrDefault();
+
+            await firebaseClient.Child("Users").Child("TutoringSessions").Child(toUpdateTutee.Key).PutAsync(new Tutoring(){
+                tutorId = accountId,
+                tutoringId = tutoringId,
+                date = date,
+                endTime = endTime,
+                startTime = startTime,
+                firstName = firstName,
+                lasttName = lasttName,
+                feedback = feedback
+
+            });
+
+            return true;
+        }
+
 
         public FirebaseHelper()
         {

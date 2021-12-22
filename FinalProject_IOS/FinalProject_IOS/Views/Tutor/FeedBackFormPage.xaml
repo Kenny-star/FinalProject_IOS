@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject_IOS.Views.Tutor.FeedBackFormPage">
+    <StackLayout>
+        <Grid>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+            <ImageButton Source="back.png" Grid.Row="0" Grid.Column="0" HeightRequest="40" WidthRequest="40" BackgroundColor="#00FFFFFF" 
+                             Clicked="GoBack_Clicked"/>
+            
+            <Frame Padding="1" BorderColor="Gray" HasShadow="False" Grid.Column="1" Grid.Row="10"
+                   Grid.ColumnSpan="3">
+                <Entry x:Name="FeedBack" Placeholder="Add A FeedBack" HeightRequest="40" WidthRequest="40" />
+        </Frame>
+
+        <Button x:Name="AddFeedBackClicked" Text="Submit" 
+                    BackgroundColor="#5578C9" TextColor="White"
+                    Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="3"
+                    Clicked="GiveFeedBackToTutee"></Button>
+    </Grid>
+    </StackLayout>
+</ContentPage>

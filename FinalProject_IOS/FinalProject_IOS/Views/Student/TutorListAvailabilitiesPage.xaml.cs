@@ -42,10 +42,6 @@ namespace FinalProject_IOS.Views.Student
             await Navigation.PushAsync(new ManageAccessPage(user1,tutoringSession));
         }
 
-        private void Report_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new ReportTutorFromTuteePage());
-        }
 
         private void GoBack_Clicked(object sender, EventArgs e)
         {

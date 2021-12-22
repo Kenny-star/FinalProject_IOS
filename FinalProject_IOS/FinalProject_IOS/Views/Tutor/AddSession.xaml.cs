@@ -50,7 +50,7 @@ namespace FinalProject_IOS.Views.Tutor
             {
                 await DisplayAlert("Notice", "You have successfully posted your availability!", "OK");
 
-                await Navigation.PushAsync(new TutorDashboardPage());
+                await Navigation.PushAsync(new TutorDashboardPage(user1));
             }
 
             else
